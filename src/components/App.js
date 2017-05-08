@@ -8,7 +8,9 @@ class App extends PureComponent {
     return (
       <div className="App">
         <Nav />
-        <SitesListing />
+        <div className="container">
+          <SitesListing />
+        </div>
       </div>
     );
   }

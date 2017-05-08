@@ -8,7 +8,8 @@ class SitesListing extends PureComponent {
     render() {
         return (
             <div className="sites row">
-                <div className="col s12 m12">
+                <div className="col s12 m12"
+                     style={{ marginTop: 30 }}>
                     { this.props.sites.map(site => {
                         return <Site site={ site } />
                     }) }
