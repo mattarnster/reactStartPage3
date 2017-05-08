@@ -5,7 +5,7 @@ class Site extends PureComponent {
         return (
             <div className="col s6 m3">
                 <a href={ this.props.site.link }
-                   className="card-panel bp-button blue darken-2 hoverable z-depth-1"
+                   className="card-panel bp-button cyan darken-2 hoverable z-depth-1"
                    style={{ display: "block" }}>
                    <span className="white-text center"
                          style={{ display: "block" }}>{ this.props.site.name }</span>
