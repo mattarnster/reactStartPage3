@@ -3,6 +3,7 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 
 import Site from './Site'
+import NoSites from './NoSites'
 
 class SitesListing extends PureComponent {
     render() {
@@ -13,9 +14,9 @@ class SitesListing extends PureComponent {
                  }}>
                 <div className="col s12 m12"
                      style={{ marginTop: 30 }}>
-                    { this.props.sites.map(site => {
-                        return <Site site={ site } />
-                    }) }
+                    { 
+                        this.props.sites.length > 0 ? this.props.sites.map(site => { return <Site site={ site } /> } ) : <NoSites />
+                    }
                 </div>
             </div>
         )

@@ -4,10 +4,20 @@ import moment from 'moment'
 
 class TodayBar extends PureComponent {
 
+    /**
+     * Gets the current date
+     * 
+     * @return {String} The current date (using momentjs)
+     */
     getDate() {
         return moment().format('LLLL')
     }
 
+    /**
+     * Gets the time of day (morning, afternoon, evening)
+     * 
+     * @return {String} The "time of day"
+     */
     getDaySection() {
         if (moment().hour() < 12) {
             return "morning"
