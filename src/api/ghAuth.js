@@ -5,6 +5,7 @@ export function ghAuth(code) {
         }).then(data => {
             return data.text()
         }).then(text => {
+            console.info('resolving')
             resolve(text)
         })
     })

@@ -4,6 +4,7 @@ import queryString from 'query-string'
 
 import Nav from './Nav'
 import TodayBar from './TodayBar'
+import GistListing from './Github/GistListing'
 
 import { ghAuthStatusChange } from '../actions/actionCreators'
 import { ghAuthorise } from '../actions/actionCreators'
@@ -14,12 +15,17 @@ class GithubConfig extends PureComponent {
      let query = queryString.parse(location.search)
      if ('code' in query) {
          console.log(query.code)
+         console.info('Auth state change dispatch')
          this.props.dispatch(ghAuthStatusChange('pending'))
+         console.info('Auth code dispatch')
          this.props.dispatch(ghAuthorise(query.code))
+         console.info('Auth code change dispatched')
      }
   }
 
   getButtonState() {
+    console.info('state')
+    console.log(this.props.github)
     if (this.props.github.ghAuthStatus === 'pending') {
       return <a className="waves-effect waves-light btn-large blue darken-3 disabled">Pending... Please wait.</a>
     } else if (this.props.github.ghAuthStatus === true) {
@@ -42,6 +48,8 @@ class GithubConfig extends PureComponent {
                     <br />
 
                     { this.getButtonState() }
+
+                    { this.props.github.ghToken ? <GistListing /> : null }
                 </div>
               </div>
           </div>

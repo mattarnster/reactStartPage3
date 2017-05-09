@@ -13,7 +13,8 @@ const defaultState = {
   sites: localStorage.getSites() ? localStorage.getSites() : [],
   github: {
     ghAuthStatus: false,
-    ghToken: null
+    ghToken: null,
+    gists: []
   }
 }
 

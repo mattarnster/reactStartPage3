@@ -14,6 +14,11 @@ const github = (state = {}, action) => {
             ghToken: action.payload.ghToken
         })
 
+    case 'LOAD_GISTS':
+        return Object.assign({}, state, {
+            gists: action.payload.gists
+        })
+
     default:
       return state
   }

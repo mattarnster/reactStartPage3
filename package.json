@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "github-api": "^3.0.0",
     "moment": "^2.18.1",
     "query-string": "^4.3.4",
     "react": "^15.5.4",
