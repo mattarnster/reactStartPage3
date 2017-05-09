@@ -1,5 +1,7 @@
 import React, { PureComponent } from 'react'
 
+import { Link } from 'react-router-dom'
+
 class Nav extends PureComponent {
     render() {
         return (
@@ -10,6 +12,7 @@ class Nav extends PureComponent {
                     {/*<li><a href="sass.html">Sass</a></li>
                     <li><a href="badges.html">Components</a></li>
                     <li><a href="collapsible.html">JavaScript</a></li>*/}
+                    <li><Link to="/link-github">Configure Github</Link></li>
                 </ul>
                 </div>
             </nav>

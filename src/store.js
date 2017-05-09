@@ -10,7 +10,11 @@ const localStorage = new localStorageHelper()
 
 // Default state
 const defaultState = {
-  sites: localStorage.getSites() ? localStorage.getSites() : []
+  sites: localStorage.getSites() ? localStorage.getSites() : [],
+  github: {
+    ghAuthStatus: false,
+    ghToken: null
+  }
 }
 
 const store = createStore(
