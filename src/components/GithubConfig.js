@@ -22,12 +22,8 @@ class GithubConfig extends PureComponent {
   componentDidMount() {
      let query = queryString.parse(location.search)
      if ('code' in query) {
-         console.log(query.code)
-         console.info('Auth state change dispatch')
          this.props.dispatch(ghAuthStatusChange('pending'))
-         console.info('Auth code dispatch')
          this.props.dispatch(ghAuthorise(query.code))
-         console.info('Auth code change dispatched')
      }
   }
 
@@ -75,17 +71,26 @@ class GithubConfig extends PureComponent {
         <Nav />
         <TodayBar />
         <div className="container">
-          <div className="s12 m12">
-              <div className="card teal white-text">
-                <div className="card-content">
-                    <h5>Link your Github account to save your bookmarks.</h5>
-                    <br />
+          <div className="row"
+               style={{
+                 marginBottom: 0
+               }}>
+            <div className="s12 m12">
+                <div className="card teal white-text"
+                    style={{ 
+                      marginBottom: 0,
+                      marginTop: 30
+                    }}>
+                  <div className="card-content">
+                      <h5>Link your Github account to save your bookmarks.</h5>
+                      <br />
 
-                    { this.getButtonState() }
+                      { this.getButtonState() }
 
-                    { this.props.github.ghToken ? <GistOps backup={ this.backup } /> : null }
+                      { this.props.github.ghToken ? <GistOps backup={ this.backup } /> : null }
 
-                    { /*this.props.github.ghToken ? <GistListing /> : null*/ }
+                      { /*this.props.github.ghToken ? <GistListing /> : null*/ }
+                  </div>
                 </div>
               </div>
           </div>

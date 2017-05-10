@@ -27,7 +27,6 @@ class GistListing extends PureComponent {
     render() {
         const { gists } = this.props.github
         console.log(gists)
-        //return (gists.length > 0 ? gists.map( gist => { return <Gist data={ gist } /> } ) : null)
         return(
             <div className="gists">
                 { gists.length > 0 ? gists.map( gist => { return <Gist key={ gist.id } data={ gist } /> } ) : null }
