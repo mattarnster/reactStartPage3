@@ -1,15 +1,23 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux'
 import queryString from 'query-string'
+import GitHub from 'github-api'
 
 import Nav from './Nav'
 import TodayBar from './TodayBar'
 import GistListing from './Github/GistListing'
+import GistOps from './Github/GistOps'
 
 import { ghAuthStatusChange } from '../actions/actionCreators'
 import { ghAuthorise } from '../actions/actionCreators'
 
 class GithubConfig extends PureComponent {
+
+  constructor() {
+    super()
+
+    this.backup = this.backup.bind(this)
+  }
 
   componentDidMount() {
      let query = queryString.parse(location.search)
@@ -35,6 +43,32 @@ class GithubConfig extends PureComponent {
     }
   }
 
+  backup() {
+    let ghClient = new GitHub({
+        token: this.props.github.ghToken
+    })
+    
+    var gist = ghClient.getGist()
+    
+    gist.create({
+      public: false,
+      description: 'RSP3 reactStartPage3 Backup',
+      files: {
+        "sites.json": {
+          content: JSON.stringify(this.props.sites)
+        }
+      }
+    })
+    .then(data => {
+      let createdGist = data;
+      return gist.read()
+    })
+    .then(data => {
+      let gist = data
+      console.log(gist)
+    })
+  }
+
   render() {
     return (
       <div className="GithubConfig">
@@ -49,7 +83,9 @@ class GithubConfig extends PureComponent {
 
                     { this.getButtonState() }
 
-                    { this.props.github.ghToken ? <GistListing /> : null }
+                    { this.props.github.ghToken ? <GistOps backup={ this.backup } /> : null }
+
+                    { /*this.props.github.ghToken ? <GistListing /> : null*/ }
                 </div>
               </div>
           </div>
@@ -62,6 +98,7 @@ class GithubConfig extends PureComponent {
 const mapStateToProps = (state) => {
     return {
         github: state.github,
+        sites: state.sites
     }
 }
 

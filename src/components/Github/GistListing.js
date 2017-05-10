@@ -13,7 +13,6 @@ class GistListing extends PureComponent {
     }
     
     getGists() {
-        console.log('get gists in')
         let ghClient = new GitHub({
             token: this.props.github.ghToken
         })
