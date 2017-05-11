@@ -8,12 +8,14 @@ import localStorageHelper from './helpers/localStorageHelper'
 
 const localStorage = new localStorageHelper()
 
+const ghAuthToken = localStorage.getAuthToken()
+
 // Default state
 const defaultState = {
   sites: localStorage.getSites() ? localStorage.getSites() : [],
   github: {
-    ghAuthStatus: false,
-    ghToken: null,
+    ghAuthStatus: (ghAuthToken ? true : false),
+    ghToken: ghAuthToken,
     gists: []
   }
 }

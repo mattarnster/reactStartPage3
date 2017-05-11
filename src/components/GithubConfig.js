@@ -5,7 +5,7 @@ import GitHub from 'github-api'
 
 import Nav from './Nav'
 import TodayBar from './TodayBar'
-import GistListing from './Github/GistListing'
+//import GistListing from './Github/GistListing'
 import GistOps from './Github/GistOps'
 
 import { ghAuthStatusChange } from '../actions/actionCreators'
@@ -56,19 +56,17 @@ class GithubConfig extends PureComponent {
       }
     })
     .then(data => {
-      let createdGist = data;
       return gist.read()
     })
-    .then(data => {
-      let gist = data
-      console.log(gist)
+    .then(gist => {
+      console.log(gist.data)
     })
   }
 
   render() {
     return (
       <div className="GithubConfig">
-        <Nav />
+        <Nav ghAuthStatus={ this.props.github.ghAuthStatus }/>
         <TodayBar />
         <div className="container">
           <div className="row"

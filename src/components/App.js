@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { connect } from 'react-redux'
 
 import Nav from './Nav'
 import SitesListing from './SitesListing'
@@ -8,7 +9,7 @@ class App extends PureComponent {
   render() {
     return (
       <div className="App">
-        <Nav />
+        <Nav ghAuthStatus={ this.props.github.ghAuthStatus } />
         <TodayBar />
         <div className="container">
           <SitesListing />
@@ -18,4 +19,10 @@ class App extends PureComponent {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    github: state.github
+  }
+}
+
+export default connect(mapStateToProps)(App);
