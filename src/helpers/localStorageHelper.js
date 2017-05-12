@@ -8,4 +8,8 @@ export default class localStorageHelper {
     getSites() {
         return JSON.parse(window.localStorage.getItem('sites'))
     }
+
+    getAuthToken() {
+        return window.localStorage.getItem('gh_auth_tok')
+    }
 }

@@ -8,7 +8,7 @@ class NoSites extends PureComponent {
                     <div className="card-content">
                         <span className="card-title white-text darken-4 center"
                               style={{ display: "block" }}><strong>Welcome to reactStartPage<sup>3</sup></strong></span>
-                        <p className="white-text center">Hi there. reactStartPage3 is currently being rebuilt.</p>
+                        <p className="white-text center">Hi there. reactStartPage<sup>3</sup> is currently being rebuilt.</p>
                         <br/>
                         <p className="white-text center">You can create an array of objects and place them in localStorage under the key 'sites' for the time being, just follow the format below:</p>
                         <div className="card-panel teal white-text">
