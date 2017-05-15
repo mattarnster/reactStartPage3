@@ -12,7 +12,8 @@ class Nav extends PureComponent {
                         {/*<li><a href="sass.html">Sass</a></li>
                         <li><a href="badges.html">Components</a></li>
                         <li><a href="collapsible.html">JavaScript</a></li>*/}
-                        <li><Link to="/link-github">Configure</Link></li>
+                        <li><Link to="/add-remove">Add/Remove</Link></li>
+                        <li><Link to="/link-github">Github Settings</Link></li>
                     </ul>
                     <ul className="right hide-on-med-and-down">
                         { /*this.props.ghAuthStatus ? <li><Link to="/link-github">Test</Link></li> : null*/ }

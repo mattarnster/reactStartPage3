@@ -76,8 +76,7 @@ class GithubConfig extends PureComponent {
             <div className="s12 m12">
                 <div className="card teal white-text"
                     style={{ 
-                      marginBottom: 0,
-                      marginTop: 30
+                      marginBottom: 0
                     }}>
                   <div className="card-content">
                       <h5>Link your Github account to save your bookmarks.</h5>
