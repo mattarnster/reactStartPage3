@@ -5,7 +5,21 @@ import Nav from '../Nav'
 import TodayBar from '../TodayBar'
 import AddRemoveForm from './AddRemoveForm'
 
+import { addSite } from '../../actions/actionCreators'
+
 class AddRemovePage extends PureComponent {
+
+    constructor() {
+        super()
+
+        this.onSubmit = this.onSubmit.bind(this)
+    }
+
+
+    onSubmit(values) {
+        this.props.dispatch(addSite(values))
+    }
+
     render() {
         return (
         <div className="App">
@@ -19,7 +33,7 @@ class AddRemovePage extends PureComponent {
                     <div className="card-content white-text">
                         <span className="card-title">Add/Remove a site</span>
                         <p>Use the form below to add a new site, or use the listing beneath to remove a site.</p>
-                        <AddRemoveForm />
+                        <AddRemoveForm onSubmit={ this.onSubmit } />
                     </div>
                 </div>
             </div>

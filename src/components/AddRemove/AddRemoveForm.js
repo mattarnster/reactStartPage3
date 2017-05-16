@@ -3,6 +3,11 @@ import { Field, reduxForm } from 'redux-form'
 
 
 class AddRemoveForm extends PureComponent {
+
+    componentDidMount() {
+        // Find some way of getting the text field to focus correctly...
+    }
+
     render() {
         const { handleSubmit } = this.props
 
@@ -14,7 +19,7 @@ class AddRemoveForm extends PureComponent {
                 <form onSubmit={ handleSubmit }>
                     <div className="input-field col s6">
                         <label htmlFor="site_name">Site name</label> 
-                        <Field name="site_name" component="input" type="text" />
+                        <Field name="site_name" className="active" component="input" type="text" />
                     </div>
                     <div className="input-field col s6">
                         <label htmlFor="site_url">Site URL</label> 

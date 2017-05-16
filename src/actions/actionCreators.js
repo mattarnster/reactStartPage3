@@ -48,3 +48,14 @@ export function loadGists(gists) {
         }
     }
 }
+
+export function addSite(values) {
+    const { site_name, site_url } = values
+    return {
+        type: 'ADD_SITE',
+        payload: {
+            site_name,
+            site_url
+        }
+    }
+}
