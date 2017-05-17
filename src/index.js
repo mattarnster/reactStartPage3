@@ -10,6 +10,7 @@ import {
 } from 'react-router-dom'
 
 import App from './components/App';
+import AddRemovePage from './components/AddRemove/AddRemovePage'
 import GithubConfig from './components/GithubConfig'
 
 ReactDOM.render(
@@ -17,6 +18,7 @@ ReactDOM.render(
     <Router>
       <div>
         <Route path="/" exact component={App} />
+        <Route path="/add-remove" exact component={AddRemovePage} />
         <Route path="/link-github" exact component={GithubConfig} />
         <Route path="/gh-callback" exact component={GithubConfig} />
       </div>
