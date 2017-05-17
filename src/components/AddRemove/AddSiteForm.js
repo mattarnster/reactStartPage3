@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import { Field, reduxForm } from 'redux-form'
 
 
-class AddRemoveForm extends PureComponent {
+class AddSiteForm extends PureComponent {
 
     componentDidMount() {
         // Find some way of getting the text field to focus correctly...
@@ -34,8 +34,8 @@ class AddRemoveForm extends PureComponent {
     }
 }
 
-AddRemoveForm = reduxForm({
-    form: 'AddRemoveForm'
-})(AddRemoveForm)
+AddSiteForm = reduxForm({
+    form: 'AddSiteForm'
+})(AddSiteForm)
 
-export default AddRemoveForm
+export default AddSiteForm

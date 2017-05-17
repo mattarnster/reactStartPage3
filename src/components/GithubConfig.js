@@ -35,7 +35,7 @@ class GithubConfig extends PureComponent {
     } else if (this.props.github.ghAuthStatus === true) {
       return <div className="card-panel green darken-1 white-text center">Logged in with Github!</div>
     } else {
-      return <a className="waves-effect waves-light btn-large blue darken-3" href="https://github.com/login/oauth/authorize?scope=gist&client_id=20c031bc4aae68587cc4">Log in with Github</a>
+      return <a className="waves-effect waves-light btn-large blue" href="https://github.com/login/oauth/authorize?scope=gist&client_id=20c031bc4aae68587cc4">Log in with Github</a>
     }
   }
 

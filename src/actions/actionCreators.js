@@ -59,3 +59,12 @@ export function addSite(values) {
         }
     }
 }
+
+export function removeSite(key) {
+    return {
+        type: 'REMOVE_SITE',
+        payload: {
+            key
+        }
+    }
+}

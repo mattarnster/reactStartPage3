@@ -9,7 +9,7 @@ const rootReducer = combineReducers({
   sites,
   github,
   form: formReducer.plugin({
-    AddRemoveForm: (state, action) => {
+    AddSiteForm: (state, action) => {
       switch(action.type) {
         case 'ADD_SITE':
           return undefined;

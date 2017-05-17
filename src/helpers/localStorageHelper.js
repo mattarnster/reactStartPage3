@@ -10,10 +10,16 @@ export default class localStorageHelper {
     }
 
     putSite(site) {
-        debugger
         let currentSites = JSON.parse(localStorage.getItem('sites'))
         let newSites = [...currentSites, site]
         localStorage.setItem('sites', JSON.stringify(newSites))
+    }
+
+    removeSite(key) {
+        let currentSites = this.getSites()
+        currentSites.splice(key, 1)
+        localStorage.setItem('sites', JSON.stringify(currentSites))
+        return currentSites
     }
 
     getAuthToken() {
