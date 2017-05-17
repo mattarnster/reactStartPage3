@@ -31,9 +31,18 @@ class AddRemovePage extends PureComponent {
                         marginBottom: 0   
                      }}>
                     <div className="card-content white-text">
-                        <span className="card-title">Add/Remove a site</span>
+                        <span className="card-title">Add a site</span>
                         <p>Use the form below to add a new site, or use the listing beneath to remove a site.</p>
                         <AddRemoveForm onSubmit={ this.onSubmit } />
+                    </div>
+                </div>
+                <div className="card cyan darken-1"
+                     style={{
+                        marginBottom: 0   
+                     }}>
+                    <div className="card-content white-text">
+                        <span className="card-title">Remove a site</span>
+                        <p>To remove a specific site, click on it below.</p>
                     </div>
                 </div>
             </div>

@@ -69,27 +69,22 @@ class GithubConfig extends PureComponent {
         <Nav ghAuthStatus={ this.props.github.ghAuthStatus }/>
         <TodayBar />
         <div className="container">
-          <div className="row"
-               style={{
-                 marginBottom: 0
-               }}>
-            <div className="s12 m12">
-                <div className="card teal white-text"
-                    style={{ 
-                      marginBottom: 0
-                    }}>
-                  <div className="card-content">
-                      <h5>Link your Github account to save your bookmarks.</h5>
-                      <br />
+          <div className="s12 m12">
+            <div className="card cyan darken-1 white-text"
+                style={{ 
+                  marginBottom: 0
+                }}>
+              <div className="card-content">
+                  <span className="card-title">Link your Github account to save your bookmarks.</span>
+                  <br />
 
-                      { this.getButtonState() }
+                  { this.getButtonState() }
 
-                      { this.props.github.ghToken ? <GistOps backup={ this.backup } /> : null }
+                  { this.props.github.ghToken ? <GistOps backup={ this.backup } /> : null }
 
-                      { /*this.props.github.ghToken ? <GistListing /> : null*/ }
-                  </div>
-                </div>
+                  { /*this.props.github.ghToken ? <GistListing /> : null*/ }
               </div>
+            </div>
           </div>
         </div>
       </div>
