@@ -12,7 +12,6 @@ const rootReducer = combineReducers({
     AddRemoveForm: (state, action) => {
       switch(action.type) {
         case 'ADD_SITE':
-          document.getElementsByName('site_name')[0].focus()
           return undefined;
         default:
           return state
