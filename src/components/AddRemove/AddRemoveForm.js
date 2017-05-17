@@ -18,12 +18,12 @@ class AddRemoveForm extends PureComponent {
                  }}>
                 <form onSubmit={ handleSubmit }>
                     <div className="input-field col s6">
-                        <label htmlFor="site_name">Site name</label> 
-                        <Field name="site_name" className="active" component="input" type="text" />
+                        <label htmlFor="name">Site name</label> 
+                        <Field name="name" className="active" component="input" type="text" />
                     </div>
                     <div className="input-field col s6">
-                        <label htmlFor="site_url">Site URL</label> 
-                        <Field name="site_url" component="input" type="text" />
+                        <label htmlFor="link">Site URL</label> 
+                        <Field name="link" component="input" type="text" />
                     </div>
                     <div className="input-field col s1">
                         <button type="submit" className="waves-effect waves-light btn blue">Submit</button>  
