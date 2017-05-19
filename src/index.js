@@ -13,6 +13,8 @@ import App from './components/App';
 import AddRemovePage from './components/AddRemove/AddRemovePage'
 import GithubConfig from './components/GithubConfig'
 
+import registerServiceWorker from './registerServiceWorker';
+
 ReactDOM.render(
   <Provider store={ store }>
     <Router>
@@ -26,3 +28,5 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
+
+registerServiceWorker()

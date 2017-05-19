@@ -1,0 +1,15 @@
+{
+  "short_name": "reactStartPage",
+  "name": "reactStartPage",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#4dd0e1",
+  "background_color": "#ffffff"
+}

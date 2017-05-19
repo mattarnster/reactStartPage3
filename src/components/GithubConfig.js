@@ -20,7 +20,7 @@ class GithubConfig extends PureComponent {
   }
 
   componentDidMount() {
-     let query = queryString.parse(location.search)
+     let query = queryString.parse(window.location.search)
      if ('code' in query) {
          this.props.dispatch(ghAuthStatusChange('pending'))
          this.props.dispatch(ghAuthorise(query.code))
