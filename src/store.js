@@ -10,9 +10,13 @@ const localStorage = new localStorageHelper()
 
 const ghAuthToken = localStorage.getAuthToken()
 
+if (localStorage.getSites() === null) {
+  window.localStorage.setItem('sites', []);
+}
+
 // Default state
 const defaultState = {
-  sites: localStorage.getSites() ? localStorage.getSites() : [],
+  sites: (localStorage.getSites() !== null) ? localStorage.getSites() : [],
   github: {
     ghAuthStatus: (ghAuthToken ? true : false),
     ghToken: ghAuthToken,

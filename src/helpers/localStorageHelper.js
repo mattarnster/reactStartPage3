@@ -6,11 +6,16 @@ export default class localStorageHelper {
      * @return {Array} An array of the user's bookmarks.
      */
     getSites() {
-        return JSON.parse(window.localStorage.getItem('sites'))
+        let sites = window.localStorage.getItem('sites');
+        if (sites === "") {
+            console.info('Empty sites array');
+            return []
+        }
+        return JSON.parse(sites)
     }
 
     putSite(site) {
-        let currentSites = JSON.parse(localStorage.getItem('sites'))
+        let currentSites = this.getSites()
         let newSites = [...currentSites, site]
         localStorage.setItem('sites', JSON.stringify(newSites))
     }
