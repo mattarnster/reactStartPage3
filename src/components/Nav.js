@@ -7,7 +7,7 @@ class Nav extends PureComponent {
         return (
             <nav>
                 <div className="nav-wrapper cyan lighten-2">
-                    <Link to="/" className="brand-logo center">reactStartPage<sup>3</sup></Link>
+                    <Link to="/" className="brand-logo center">reactStartPage<sup>3.1</sup></Link>
                     <ul className="left hide-on-med-and-down">
                         {/*<li><a href="sass.html">Sass</a></li>
                         <li><a href="badges.html">Components</a></li>

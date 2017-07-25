@@ -8,8 +8,13 @@ import TodayBar from './TodayBar'
 //import GistListing from './Github/GistListing'
 import GistOps from './Github/GistOps'
 
-import { ghAuthStatusChange } from '../actions/actionCreators'
-import { ghAuthorise } from '../actions/actionCreators'
+import localStorageHelper from '../helpers/localStorageHelper'
+
+import { 
+  ghAuthStatusChange,
+  ghAuthorise,
+  ghUpdateBackupGistId
+} from '../actions/actionCreators'
 
 class GithubConfig extends PureComponent {
 
@@ -45,22 +50,46 @@ class GithubConfig extends PureComponent {
     })
     
     var gist = ghClient.getGist()
-    
-    gist.create({
-      public: false,
-      description: 'RSP3 reactStartPage3 Backup',
-      files: {
-        "sites.json": {
-          content: JSON.stringify(this.props.sites)
-        }
-      }
-    })
-    .then(data => {
-      return gist.read()
-    })
-    .then(gist => {
-      console.log(gist.data)
-    })
+
+    if (!this.props.github.ghBackupGistId) {
+      gist.create({
+        public: false,
+        description: 'reactStartPage3 Backup',
+        files: {
+            "sites.json": {
+              content: JSON.stringify(this.props.sites)
+            }
+          }
+        })
+      .then(data => {
+        return gist.read()
+      })
+      .then(gist => {
+        console.log(gist.data)
+        this.props.dispatch(ghUpdateBackupGistId(gist.data.id))
+      })
+    } else { 
+      console.log('Backup gist id not found in storage')
+      let gist = ghClient.getGist(this.props.github.ghBackupGistId)
+      gist.read()
+      .then(data => {
+        console.info('Reading gist from GH')
+        gist.update({
+          files: {
+            'sites.json': {
+              content: JSON.stringify(this.props.sites)
+            }
+          }
+        })
+        .then (data => {
+          return gist.read()
+        })
+        .then (gist => {
+          console.log('gist update')
+          console.log(gist.data)
+        })
+      })
+    }
   }
 
   render() {

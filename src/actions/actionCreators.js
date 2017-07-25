@@ -68,3 +68,12 @@ export function removeSite(key) {
         }
     }
 }
+
+export function ghUpdateBackupGistId(id) {
+    return {
+        type: 'UPDATE_BACKUP_GIST_ID',
+        payload: {
+            id
+        }
+    }
+}

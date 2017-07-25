@@ -30,4 +30,18 @@ export default class localStorageHelper {
     getAuthToken() {
         return window.localStorage.getItem('gh_auth_tok')
     }
+
+    getBackupGistId() {
+        let ghBackupGistId = window.localStorage.getItem('gh_backup_gist_id')
+
+        if (ghBackupGistId === null || ghBackupGistId === '') {
+            return null
+        }
+
+        return ghBackupGistId
+    }
+
+    putBackupGistId(id) {
+        return window.localStorage.setItem('gh_backup_gist_id', id)
+    }
 }
