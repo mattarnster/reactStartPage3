@@ -5,7 +5,7 @@ import GitHub from 'github-api'
 
 import Nav from './Nav'
 import TodayBar from './TodayBar'
-//import GistListing from './Github/GistListing'
+import GistListing from './Github/GistListing'
 import GistOps from './Github/GistOps'
 
 import localStorageHelper from '../helpers/localStorageHelper'
@@ -111,7 +111,7 @@ class GithubConfig extends PureComponent {
 
                   { this.props.github.ghToken ? <GistOps backup={ this.backup } /> : null }
 
-                  { /*this.props.github.ghToken ? <GistListing /> : null*/ }
+                  { this.props.github.ghToken ? <GistListing /> : null }
               </div>
             </div>
           </div>

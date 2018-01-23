@@ -9,7 +9,7 @@ class Gist extends PureComponent {
         return (
             <div className="gist card light-blue">
                 <div className="card-content white-text">
-                    <span className="card-title">{ this.props.data.id.substring(0, 8) } - { this.getFiles() }</span>
+                    <span className="card-title">{ this.props.data.id.substring(0, 8) } - { this.props.data.description ? this.props.data.description : 'No description' }</span>
                 </div>
             </div>
         )
