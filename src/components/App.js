@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import Nav from './Nav'
 import SitesListing from './SitesListing'
 import TodayBar from './TodayBar'
+import ImageCredit from './ImageCredit'
 
 class App extends PureComponent {
   render() {
@@ -14,6 +15,7 @@ class App extends PureComponent {
         <div className="container">
           <SitesListing />
         </div>
+        <ImageCredit />
       </div>
     );
   }
