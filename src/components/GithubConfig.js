@@ -8,8 +8,6 @@ import TodayBar from './TodayBar'
 import GistListing from './Github/GistListing'
 import GistOps from './Github/GistOps'
 
-import localStorageHelper from '../helpers/localStorageHelper'
-
 import { 
   ghAuthStatusChange,
   ghAuthorise,

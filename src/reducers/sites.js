@@ -13,7 +13,12 @@ const sites = (state = [], action) => {
 
     case 'REMOVE_SITE':
       lsh = new localStorageHelper()
-      let sites = lsh.removeSite(action.payload.key)
+      var sites = lsh.removeSite(action.payload.key)
+      return sites
+
+    case 'REPLACE_SITES':
+      lsh = new localStorageHelper()
+      sites = lsh.replaceSites(action.payload)
       return sites
 
     default:

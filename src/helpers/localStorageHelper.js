@@ -27,6 +27,11 @@ export default class localStorageHelper {
         return currentSites
     }
 
+    replaceSites(sites) {
+        localStorage.setItem('sites', JSON.stringify(sites.sites))
+        return sites.sites
+    }
+
     getAuthToken() {
         return window.localStorage.getItem('gh_auth_tok')
     }

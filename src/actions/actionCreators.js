@@ -49,6 +49,15 @@ export function loadGists(gists) {
     }
 }
 
+export function replaceSites(sites) {
+    return {
+        type: 'REPLACE_SITES',
+        payload: {
+            sites
+        }
+    }
+}
+
 export function addSite(values) {
     const { name, link } = values
     return {
