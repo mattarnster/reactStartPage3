@@ -35,6 +35,8 @@ class GistListing extends PureComponent {
             return data.json()
         }).then( (json) => {
             this.props.dispatch(replaceSites(json))
+            alert('Your bookmarks have been replaced with the contents of the GitHub gist.');
+            window.location = "/"
         })
     }
     
