@@ -7,13 +7,9 @@ export default class ImageCredit extends Component {
   }
 
   componentDidMount() {
-    fetch('/assets/imagecredit.txt').then( (text) => {
+    fetch('/assets/imagecredit.txt').success( (text) => {
       this.setState({
         imageCredit: text
-      })
-    }).catch( (reason) => {
-      this.setState({
-        imageCredit: null
       })
     })
   }
