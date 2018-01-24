@@ -100,7 +100,7 @@ class GithubConfig extends PureComponent {
                   marginBottom: 0
                 }}>
               <div className="card-content">
-                  <span className="card-title">Link your Github account to save your bookmarks.</span>
+                  <span className="card-title">Link your GitHub account to save your bookmarks.</span>
                   <br />
 
                   { this.getButtonState() }
