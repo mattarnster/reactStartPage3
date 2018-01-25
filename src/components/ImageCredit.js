@@ -10,8 +10,14 @@ class ImageCredit extends Component {
   }
 
   componentDidMount() {
-    fetch('/assets/imagecredit.txt').then( (data) =>
-      this.props.dispatch(loadImageCredit(data))
+    fetch('/assets/imagecredit.txt').then(
+      (data) => {
+        return data.text()
+      }
+    ).then(
+      (text) => {
+        this.props.dispatch(loadImageCredit(text))
+      }
     )
   }
 
