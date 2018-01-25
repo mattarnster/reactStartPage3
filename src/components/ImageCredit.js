@@ -25,7 +25,7 @@ class ImageCredit extends Component {
     return (
       <div className="imagecredit">
         <p>Image credit: <a href="https://www.unsplash.com">
-        { this.state.imageCredit ? this.state.imageCredit : 'Loading image credit...' }</a></p>
+        { this.props.imageCredit ? this.props.imageCredit : 'Loading image credit...' }</a></p>
       </div>
     )
   }
