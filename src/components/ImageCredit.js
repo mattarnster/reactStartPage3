@@ -9,6 +9,13 @@ class ImageCredit extends Component {
     imageCredit: ''
   }
 
+  convertUnicode(input) {
+    return input.replace(/\\u(\w\w\w\w)/g,function(a,b) {
+      var charcode = parseInt(b,16);
+      return String.fromCharCode(charcode);
+    });
+  }
+
   componentDidMount() {
     fetch('/assets/imagecredit.txt').then(
       (data) => {
@@ -16,7 +23,7 @@ class ImageCredit extends Component {
       }
     ).then(
       (text) => {
-        this.props.dispatch(loadImageCredit(text))
+        this.props.dispatch(loadImageCredit(this.convertUnicode(text)))
       }
     )
   }
