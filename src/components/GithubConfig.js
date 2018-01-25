@@ -35,9 +35,7 @@ class GithubConfig extends PureComponent {
     console.log(this.props.github)
     if (this.props.github.ghAuthStatus === 'pending') {
       return <a className="waves-effect waves-light btn-large blue darken-3 disabled">Pending... Please wait.</a>
-    } else if (this.props.github.ghAuthStatus === true) {
-      return <div className="card-panel green darken-1 white-text center">Logged in with Github!</div>
-    } else {
+    } else if (!this.props.github.ghAuthStatus) {
       return <a className="waves-effect waves-light btn-large blue" href="https://github.com/login/oauth/authorize?scope=gist&client_id=20c031bc4aae68587cc4">Log in with Github</a>
     }
   }
@@ -102,7 +100,7 @@ class GithubConfig extends PureComponent {
                   marginBottom: 0
                 }}>
               <div className="card-content">
-                  <span className="card-title">Link your Github account to save your bookmarks.</span>
+                  <span className="card-title">Link your GitHub account to save your bookmarks.</span>
                   <br />
 
                   { this.getButtonState() }
