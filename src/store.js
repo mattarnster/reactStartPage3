@@ -23,7 +23,8 @@ const defaultState = {
     ghToken: ghAuthToken,
     gists: [],
     ghBackupGistId
-  }
+  },
+  imageCredit: ''
 }
 
 const store = createStore(

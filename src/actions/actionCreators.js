@@ -78,6 +78,15 @@ export function removeSite(key) {
     }
 }
 
+export function loadImageCredit(credit) {
+    return {
+        type: 'LOAD_IMAGE_CREDIT',
+        payload: {
+            credit
+        }
+    }
+}
+
 export function ghUpdateBackupGistId(id) {
     return {
         type: 'UPDATE_BACKUP_GIST_ID',
