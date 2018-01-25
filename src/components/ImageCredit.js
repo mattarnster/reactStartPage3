@@ -1,17 +1,18 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-export default class ImageCredit extends Component {
+import { loadImageCredit } from '../actions/actionCreators';
+
+class ImageCredit extends Component {
 
   state = {
     imageCredit: ''
   }
 
   componentDidMount() {
-    fetch('/assets/imagecredit.txt').success( (text) => {
-      this.setState({
-        imageCredit: text
-      })
-    })
+    fetch('/assets/imagecredit.txt').then( (data) =>
+      this.props.dispatch(loadImageCredit(data))
+    )
   }
 
   render() {
@@ -23,3 +24,11 @@ export default class ImageCredit extends Component {
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+      imageCredit: state.imageCredit
+  }
+}
+
+export default connect(mapStateToProps)(ImageCredit)

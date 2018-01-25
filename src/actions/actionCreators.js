@@ -82,7 +82,7 @@ export function loadImageCredit(credit) {
     return {
         type: 'LOAD_IMAGE_CREDIT',
         payload: {
-            credit
+            credit: credit
         }
     }
 }
