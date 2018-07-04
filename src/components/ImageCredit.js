@@ -17,13 +17,13 @@ class ImageCredit extends Component {
   }
 
   componentDidMount() {
-    fetch('/assets/imagecredit.txt').then(
+    fetch('/assets/imagecredit.json').then(
       (data) => {
-        return data.text()
+        return data.json()
       }
     ).then(
-      (text) => {
-        this.props.dispatch(loadImageCredit(this.convertUnicode(text)))
+      (json) => {
+        this.props.dispatch(loadImageCredit(json))
       }
     )
   }
@@ -31,8 +31,7 @@ class ImageCredit extends Component {
   render() {
     return (
       <div className="imagecredit">
-        <p>Image credit:
-        { this.props.imageCredit ? this.props.imageCredit : 'Loading image credit...' }</p>
+        <p>Image credit: <a href={ this.props.imageCredit.url }>{ this.props.imageCredit.author ? this.props.imageCredit.author : 'Loading image credit...' }</a></p>
       </div>
     )
   }

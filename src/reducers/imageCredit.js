@@ -2,7 +2,7 @@
 
 //import localStorageHelper from '../helpers/localStorageHelper'
 
-const imageCredit = (state = '', action) => {
+const imageCredit = (state = {}, action) => {
 
   switch(action.type) {
 
