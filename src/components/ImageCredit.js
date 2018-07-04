@@ -31,8 +31,8 @@ class ImageCredit extends Component {
   render() {
     return (
       <div className="imagecredit">
-        <p>Image credit: <a href="https://www.unsplash.com">
-        { this.props.imageCredit ? this.props.imageCredit : 'Loading image credit...' }</a></p>
+        <p>Image credit:
+        { this.props.imageCredit ? this.props.imageCredit : 'Loading image credit...' }</p>
       </div>
     )
   }
