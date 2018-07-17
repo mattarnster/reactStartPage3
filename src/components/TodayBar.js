@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import { connect } from 'react-redux'
 
 import moment from 'moment'
 
@@ -6,7 +7,7 @@ class TodayBar extends PureComponent {
 
     /**
      * Gets the current date
-     * 
+     *
      * @return {String} The current date (using momentjs)
      */
     getDate() {
@@ -15,7 +16,7 @@ class TodayBar extends PureComponent {
 
     /**
      * Gets the time of day (morning, afternoon, evening)
-     * 
+     *
      * @return {String} The "time of day"
      */
     getDaySection() {
@@ -26,6 +27,13 @@ class TodayBar extends PureComponent {
         } else if (moment().hour() >= 18) {
             return "evening"
         }
+    }
+
+    getUserName() {
+      if (this.props.github.ghProfile !== null) {
+        let fn = this.props.github.ghProfile.name.split(' ', 1)
+        return fn;
+      }
     }
 
     render() {
@@ -41,7 +49,7 @@ class TodayBar extends PureComponent {
                             marginTop: 0
                         }}>
                             <span className="white-text">
-                                Good { this.getDaySection() }!
+                              Good { this.getDaySection() }{ this.getUserName() ? ', ' + this.getUserName() : ''}!
                             </span>
                         </p>
                     </div>
@@ -51,4 +59,11 @@ class TodayBar extends PureComponent {
     }
 }
 
-export default TodayBar
+
+const mapStateToProps = (state) => {
+  return {
+    github: state.github,
+  }
+}
+
+export default connect(mapStateToProps)(TodayBar);

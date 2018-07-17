@@ -10,6 +10,7 @@ const localStorage = new localStorageHelper()
 
 const ghAuthToken = localStorage.getAuthToken()
 const ghBackupGistId = localStorage.getBackupGistId()
+const ghLocalProfile = localStorage.getProfile()
 
 if (localStorage.getSites() === null) {
   window.localStorage.setItem('sites', []);
@@ -21,6 +22,7 @@ const defaultState = {
   github: {
     ghAuthStatus: (ghAuthToken ? true : false),
     ghToken: ghAuthToken,
+    ghProfile: ghLocalProfile,
     gists: [],
     ghBackupGistId
   },

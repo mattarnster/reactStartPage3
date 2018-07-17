@@ -13,7 +13,7 @@ class Nav extends PureComponent {
                         <li><Link to="/link-github">GitHub Settings</Link></li>
                     </ul>
                     <ul className="right hide-on-med-and-down">
-                        { this.props.ghAuthStatus ? <li><Link to="/link-github">Logged in to GitHub</Link></li> : null }
+                        { this.props.ghAuthStatus ? <li className="gh-connected"><Link to="/link-github"><img alt="It's you!" src="//avatars0.githubusercontent.com/u/6093927?v=4" width="30" height="30"/>Connected to GitHub</Link></li> : null }
                     </ul>
                 </div>
             </nav>

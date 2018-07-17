@@ -49,4 +49,12 @@ export default class localStorageHelper {
     putBackupGistId(id) {
         return window.localStorage.setItem('gh_backup_gist_id', id)
     }
+
+    getProfile() {
+      return JSON.parse(window.localStorage.getItem('gh_profile'))
+    }
+
+    setProfile(profile) {
+      return window.localStorage.setItem('gh_profile', JSON.stringify(profile))
+    }
 }

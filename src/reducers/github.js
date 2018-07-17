@@ -22,9 +22,15 @@ const github = (state = {}, action) => {
             gists: action.payload.gists
         })
 
+    case 'LOAD_PROFILE':
+        let lsh = new localStorageHelper()
+        lsh.setProfile(action.payload.profile)
+        return Object.assign({}, state, {
+          ghProfile: action.payload.profile
+        })
+
     case 'UPDATE_BACKUP_GIST_ID':
-      let lsh = new localStorageHelper()
-      lsh.putBackupGistId(action.payload.id) 
+      lsh.putBackupGistId(action.payload.id)
         return Object.assign({}, state, {
             ghBackupGistId: action.payload.id
         })

@@ -8,11 +8,14 @@ import TodayBar from './TodayBar'
 import GistListing from './Github/GistListing'
 import GistOps from './Github/GistOps'
 
-import { 
+import {
   ghAuthStatusChange,
   ghAuthorise,
-  ghUpdateBackupGistId
+  ghUpdateBackupGistId,
+  ghUserProfile
 } from '../actions/actionCreators'
+
+import { ghProfile } from '../api/ghProfile';
 
 class GithubConfig extends PureComponent {
 
@@ -28,6 +31,11 @@ class GithubConfig extends PureComponent {
          this.props.dispatch(ghAuthStatusChange('pending'))
          this.props.dispatch(ghAuthorise(query.code))
      }
+     ghProfile().then(req => {
+       return req.data
+     }).then(profile => {
+       this.props.dispatch(ghUserProfile(profile))
+     })
   }
 
   getButtonState() {
@@ -44,7 +52,7 @@ class GithubConfig extends PureComponent {
     let ghClient = new GitHub({
         token: this.props.github.ghToken
     })
-    
+
     var gist = ghClient.getGist()
 
     if (!this.props.github.ghBackupGistId) {
@@ -64,7 +72,7 @@ class GithubConfig extends PureComponent {
         console.log(gist.data)
         this.props.dispatch(ghUpdateBackupGistId(gist.data.id))
       })
-    } else { 
+    } else {
       console.log('Backup gist id not found in storage')
       let gist = ghClient.getGist(this.props.github.ghBackupGistId)
       gist.read()
@@ -96,7 +104,7 @@ class GithubConfig extends PureComponent {
         <div className="container">
           <div className="s12 m12">
             <div className="card cyan darken-1 white-text"
-                style={{ 
+                style={{
                   marginBottom: 0
                 }}>
               <div className="card-content">

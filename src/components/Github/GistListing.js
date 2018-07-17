@@ -10,21 +10,21 @@ class GistListing extends PureComponent {
 
     constructor() {
         super()
-    
+
         this.replaceSites = this.replaceSites.bind(this)
       }
 
     componentDidMount() {
         this.getGists()
     }
-    
+
     getGists() {
         let ghClient = new GitHub({
             token: this.props.github.ghToken
         })
-        
+
         var me = ghClient.getUser()
-        
+
         me.listGists().then((gists, err) => {
             this.props.dispatch(loadGists(gists.data))
         })
@@ -39,7 +39,7 @@ class GistListing extends PureComponent {
             window.location = "/"
         })
     }
-    
+
     render() {
         const { gists } = this.props.github
         return(
