@@ -38,7 +38,7 @@ class TodayBar extends PureComponent {
 
     render() {
         return (
-            <section className="day-overview cyan darken-1">
+            <section className="day-overview orange darken-1">
                 <div className="container">
                     <div className="s12 m12">
                         <p style={{

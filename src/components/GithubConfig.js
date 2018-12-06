@@ -103,7 +103,7 @@ class GithubConfig extends PureComponent {
         <TodayBar />
         <div className="container">
           <div className="s12 m12">
-            <div className="card cyan darken-1 white-text"
+            <div className="card orange darken-1 white-text"
                 style={{
                   marginBottom: 0
                 }}>

@@ -32,7 +32,7 @@ class AddRemovePage extends PureComponent {
             <Nav ghAuthStatus={ this.props.github.ghAuthStatus } />
             <TodayBar />
             <div className="container">
-                <div className="card cyan darken-1"
+                <div className="card orange darken-1"
                      style={{
                         marginBottom: 0   
                      }}>
@@ -42,7 +42,7 @@ class AddRemovePage extends PureComponent {
                         <AddSiteForm onSubmit={ this.onSubmit } />
                     </div>
                 </div>
-                <div className="card cyan darken-1"
+                <div className="card orange darken-1"
                      style={{
                         marginBottom: 0   
                      }}>
