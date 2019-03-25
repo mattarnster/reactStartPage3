@@ -1,5 +1,7 @@
 import React, { PureComponent } from 'react'
 
+import { connect } from 'react-redux'
+
 import { Link } from 'react-router-dom'
 
 class Nav extends PureComponent {
@@ -21,4 +23,10 @@ class Nav extends PureComponent {
     }
 }
 
-export default Nav
+const mapStateToProps = (state) => {
+    return {
+        sites: state.sites
+    }
+}
+
+export default connect(mapStateToProps)(Nav)
