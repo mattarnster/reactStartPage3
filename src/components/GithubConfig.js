@@ -43,7 +43,7 @@ class GithubConfig extends PureComponent {
     console.info('state')
     console.log(this.props.github)
     if (this.props.github.ghAuthStatus === 'pending') {
-      return <a className="waves-effect waves-light btn-large blue darken-3 disabled">Pending... Please wait.</a>
+      return <p className="waves-effect waves-light btn-large blue darken-3 disabled">Pending... Please wait.</p>
     } else if (!this.props.github.ghAuthStatus) {
       return <a className="waves-effect waves-light btn-large blue" href="https://github.com/login/oauth/authorize?scope=gist&client_id=20c031bc4aae68587cc4">Log in with Github</a>
     }
