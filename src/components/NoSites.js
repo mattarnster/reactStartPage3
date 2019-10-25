@@ -4,7 +4,7 @@ class NoSites extends PureComponent {
     render() {
         return (
             <div className="s12 m12">
-                <div className="card orange">
+                <div className="card" style={{ backgroundColor: this.props.color }}>
                     <div className="card-content white-text">
                         <span className="card-title center"
                               style={{

@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux'
 import queryString from 'query-string'
 import GitHub from 'github-api'
+import tinycolor from 'tinycolor2'
 
 import Nav from './Nav'
 import TodayBar from './TodayBar'
@@ -96,6 +97,19 @@ class GithubConfig extends PureComponent {
     }
   }
 
+  getComputedColor(withMargin) {
+    var darkened = tinycolor(this.props.color)
+    if (withMargin) {
+      return {
+        backgroundColor: darkened.darken(10),
+        marginBottom: 0
+      }
+    }
+    return {
+      backgroundColor: darkened.darken(10)
+    }
+  }
+
   render() {
     return (
       <div className="GithubConfig">
@@ -103,19 +117,17 @@ class GithubConfig extends PureComponent {
         <TodayBar />
         <div className="container">
           <div className="s12 m12">
-            <div className="card orange darken-1 white-text"
-                style={{
-                  marginBottom: 0
-                }}>
+            <div className="card white-text"
+                style={ this.getComputedColor() }>
               <div className="card-content">
                   <span className="card-title">Link your GitHub account to save your bookmarks.</span>
                   <br />
 
                   { this.getButtonState() }
 
-                  { this.props.github.ghToken ? <GistOps backup={ this.backup } /> : null }
+                  { this.props.github.ghToken ? <GistOps color={ this.props.color } backup={ this.backup } /> : null }
 
-                  { this.props.github.ghToken ? <GistListing /> : null }
+                  { this.props.github.ghToken ? <GistListing color={ this.props.color } /> : null }
               </div>
             </div>
           </div>
@@ -128,7 +140,8 @@ class GithubConfig extends PureComponent {
 const mapStateToProps = (state) => {
     return {
         github: state.github,
-        sites: state.sites
+        sites: state.sites,
+        color: state.color
     }
 }
 

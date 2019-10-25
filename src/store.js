@@ -16,6 +16,10 @@ if (localStorage.getSites() === null) {
   window.localStorage.setItem('sites', []);
 }
 
+if (localStorage.getColor() === null) {
+  window.localStorage.setItem('color', '#aaa');
+}
+
 // Default state
 const defaultState = {
   sites: (localStorage.getSites() !== null) ? localStorage.getSites() : [],
@@ -26,7 +30,8 @@ const defaultState = {
     gists: [],
     ghBackupGistId
   },
-  imageCredit: ''
+  imageCredit: '',
+  color: localStorage.getColor(),
 }
 
 const store = createStore(

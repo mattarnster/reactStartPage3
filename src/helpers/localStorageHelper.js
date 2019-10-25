@@ -57,4 +57,12 @@ export default class localStorageHelper {
     setProfile(profile) {
       return window.localStorage.setItem('gh_profile', JSON.stringify(profile))
     }
+
+    getColor() {
+        return window.localStorage.getItem('color')
+    }
+  
+    setColor(color) {
+        return window.localStorage.setItem('color', color)
+    }
 }

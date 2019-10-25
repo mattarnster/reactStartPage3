@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux'
+import tinycolor from 'tinycolor2'
 
 import Nav from '../Nav'
 import TodayBar from '../TodayBar'
@@ -26,26 +27,35 @@ class AddRemovePage extends PureComponent {
         this.props.dispatch(removeSite(key))
     }
 
+    getComputedColor(withMargin) {
+        var darkened = tinycolor(this.props.color)
+        if (withMargin === true) {
+            return {
+                backgroundColor: darkened.darken(10),
+                marginBottom: 0
+            }
+        }
+        return {
+            backgroundColor: darkened.darken(10)
+        }
+    }
+
     render() {
         return (
         <div className="App">
             <Nav ghAuthStatus={ this.props.github.ghAuthStatus } />
             <TodayBar />
             <div className="container">
-                <div className="card orange darken-1"
-                     style={{
-                        marginBottom: 0   
-                     }}>
+                <div className="card"
+                     style={ this.getComputedColor(true) }>
                     <div className="card-content white-text">
                         <span className="card-title">Add a site</span>
                         <p>Use the form below to add a new site, or use the listing beneath to remove a site.</p>
                         <AddSiteForm onSubmit={ this.onSubmit } />
                     </div>
                 </div>
-                <div className="card orange darken-1"
-                     style={{
-                        marginBottom: 0   
-                     }}>
+                <div className="card"
+                     style={ this.getComputedColor(true) }>
                     <div className="card-content white-text">
                         <span className="card-title">Remove a site</span>
                         <p>To remove a specific site, click on it below.</p>
@@ -64,7 +74,8 @@ class AddRemovePage extends PureComponent {
 const mapStateToProps = (state) => {
     return {
         sites: state.sites,
-        github: state.github
+        github: state.github,
+        color: state.color
     }
 }
 

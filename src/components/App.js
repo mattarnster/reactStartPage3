@@ -23,7 +23,8 @@ class App extends PureComponent {
 
 const mapStateToProps = (state) => {
   return {
-    github: state.github
+    github: state.github,
+    color: state.color
   }
 }
 

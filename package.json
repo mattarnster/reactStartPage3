@@ -8,13 +8,15 @@
     "moment": "^2.22.2",
     "query-string": "5",
     "react": "^15.5.4",
+    "react-color": "^2.17.3",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.7",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.0",
     "redux-form": "^7.4.2",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "tinycolor2": "^1.4.1"
   },
   "devDependencies": {
     "react-scripts": "1.1.4"

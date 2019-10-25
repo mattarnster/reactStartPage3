@@ -99,3 +99,21 @@ export function ghUpdateBackupGistId(id) {
         }
     }
 }
+
+// export function loadColor(color) {
+//     return {
+//         type: 'LOAD_COLOR',
+//         payload: {
+//             color: color
+//         }
+//     }
+// }
+
+export function setColor(color) {
+    return {
+        type: 'SET_COLOR',
+        payload: {
+            color: color
+        }
+    }
+}

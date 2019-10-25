@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
+import tinycolor from 'tinycolor2'
 
 import moment from 'moment'
 
@@ -36,9 +37,16 @@ class TodayBar extends PureComponent {
       }
     }
 
+    getComputedColor() {
+        var darkened = tinycolor(this.props.color)
+        return {
+            backgroundColor: darkened.darken(10)
+        }
+    }
+
     render() {
         return (
-            <section className="day-overview orange darken-1">
+            <section className="day-overview" style={ this.getComputedColor() }>
                 <div className="container">
                     <div className="s12 m12">
                         <p style={{
@@ -63,6 +71,7 @@ class TodayBar extends PureComponent {
 const mapStateToProps = (state) => {
   return {
     github: state.github,
+    color: state.color
   }
 }
 
