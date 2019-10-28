@@ -21,7 +21,7 @@ if (localStorage.getColor() === null) {
 }
 
 if (localStorage.getTextColor() === null) {
-  window.localStorage.setItem('text_color', 'light');
+  window.localStorage.setItem('text_color', 'white-text');
 }
 
 // Default state
