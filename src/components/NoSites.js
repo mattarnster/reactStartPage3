@@ -9,7 +9,7 @@ class NoSites extends PureComponent {
                         <span className="card-title center"
                               style={{
                                   display: 'block'
-                              }}>Welcome to reactStartPage<sup>3</sup></span>
+                              }}>Welcome to reactStartPage<sup>4</sup></span>
                         <p className="center">Click 'Add/Remove' in the top-left to get started!</p>
                     </div>
                 </div>
