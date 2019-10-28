@@ -8,7 +8,7 @@ import GithubConfig from '../GithubConfig'
 
 import { ChromePicker } from 'react-color'
 
-import { setColor } from '../../actions/actionCreators'
+import { setColor, setTextColor } from '../../actions/actionCreators'
 
 class SettingsPage extends PureComponent {
 
@@ -21,6 +21,13 @@ class SettingsPage extends PureComponent {
 
     onColorChange(values) {
         this.props.dispatch(setColor(values.hex))
+        let color = tinycolor(values.hex)
+
+        if (color.isDark()) {
+            this.props.dispatch(setTextColor('white-text'))
+        } else {
+            this.props.dispatch(setTextColor('grey-text text-darken-4'))
+        }
     }
 
     getComputedColor(withMargin) {
@@ -44,7 +51,7 @@ class SettingsPage extends PureComponent {
             <div className="container">
                 <div className="card"
                      style={ this.getComputedColor() }>
-                    <div className="card-content white-text">
+                    <div className={ 'card-content ' + this.props.textColor}>
                         <span className="card-title">Theme</span>
                         <p>Choose your favorite color to customize the theme</p>
                         <br/>
@@ -57,7 +64,7 @@ class SettingsPage extends PureComponent {
             <div className="container">
             <div className="card"
                      style={ this.getComputedColor() }>
-                    <div className="card-content white-text">
+                    <div className={ 'card-content ' + this.props.textColor }>
                         <span className="card-title">Github</span>
                         <p>Configure the link to GitHub for exporting your sites.</p>
                         <br/>
@@ -73,6 +80,7 @@ class SettingsPage extends PureComponent {
 const mapStateToProps = (state) => {
     return {
         color: state.color,
+        textColor: state.textColor,
         github: state.github
     }
 }

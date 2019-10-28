@@ -18,11 +18,11 @@ class AddSiteForm extends PureComponent {
                  }}>
                 <form onSubmit={ handleSubmit }>
                     <div className="input-field col s6">
-                        <label htmlFor="name">Site name</label> 
-                        <Field name="name" className="active" component="input" type="text" />
+                        <label htmlFor="name" className={ this.props.textColor }>Site name</label> 
+                        <Field name="name" className={ 'active ' + this.props.textColor } component="input" type="text" />
                     </div>
                     <div className="input-field col s6">
-                        <label htmlFor="link">Site URL</label> 
+                        <label htmlFor="link" className={ this.props.textColor }>Site URL</label> 
                         <Field name="link" component="input" type="text" />
                     </div>
                     <div className="input-field col s1">

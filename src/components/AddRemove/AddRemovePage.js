@@ -48,20 +48,21 @@ class AddRemovePage extends PureComponent {
             <div className="container">
                 <div className="card"
                      style={ this.getComputedColor(true) }>
-                    <div className="card-content white-text">
+                    <div className={ 'card-content ' + this.props.textColor }>
                         <span className="card-title">Add a site</span>
                         <p>Use the form below to add a new site, or use the listing beneath to remove a site.</p>
-                        <AddSiteForm onSubmit={ this.onSubmit } />
+                        <AddSiteForm textColor={ this.props.textColor } color={ this.props.color } onSubmit={ this.onSubmit } />
                     </div>
                 </div>
                 <div className="card"
                      style={ this.getComputedColor(true) }>
-                    <div className="card-content white-text">
+                    <div className={ 'card-content ' + this.props.textColor }>
                         <span className="card-title">Remove a site</span>
                         <p>To remove a specific site, click on it below.</p>
                         <div className="card-content">
                             <RemoveSiteListing sites={ this.props.sites }
-                                               removeSite={ this.removeSite } />
+                                               removeSite={ this.removeSite }
+                                               textColor={ this.props.textColor } />
                         </div>
                     </div>
                 </div>
@@ -75,7 +76,8 @@ const mapStateToProps = (state) => {
     return {
         sites: state.sites,
         github: state.github,
-        color: state.color
+        color: state.color,
+        textColor: state.textColor
     }
 }
 

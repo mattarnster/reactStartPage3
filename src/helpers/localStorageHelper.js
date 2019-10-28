@@ -65,4 +65,12 @@ export default class localStorageHelper {
     setColor(color) {
         return window.localStorage.setItem('color', color)
     }
+
+    getTextColor() {
+        return window.localStorage.getItem('text_color')
+    }
+
+    setTextColor(text_color) {
+        return window.localStorage.setItem('text_color', text_color)
+    }
 }

@@ -17,7 +17,11 @@ if (localStorage.getSites() === null) {
 }
 
 if (localStorage.getColor() === null) {
-  window.localStorage.setItem('color', '#aaa');
+  window.localStorage.setItem('color', '#695DA4');
+}
+
+if (localStorage.getTextColor() === null) {
+  window.localStorage.setItem('text_color', 'light');
 }
 
 // Default state
@@ -32,6 +36,7 @@ const defaultState = {
   },
   imageCredit: '',
   color: localStorage.getColor(),
+  textColor: localStorage.getTextColor(),
 }
 
 const store = createStore(

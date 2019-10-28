@@ -15,7 +15,7 @@ class SitesListing extends PureComponent {
                 <div className="col s12 m12"
                      style={{ marginTop: 30 }}>
                     { 
-                        this.props.sites.length > 0 ? this.props.sites.map((site, index) => { return <Site key={ index } site={ site } color={ this.props.color } /> } ) : <NoSites color={ this.props.color } />
+                        this.props.sites.length > 0 ? this.props.sites.map((site, index) => { return <Site key={ index } site={ site } color={ this.props.color } textColor={ this.props.textColor } /> } ) : <NoSites color={ this.props.color } textColor={ this.props.textColor } />
                     }
                 </div>
             </div>
@@ -26,7 +26,8 @@ class SitesListing extends PureComponent {
 const mapStateToProps = (state) => {
     return {
         sites: state.sites,
-        color: state.color
+        color: state.color,
+        textColor: state.textColor
     }
 }
 

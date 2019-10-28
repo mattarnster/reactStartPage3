@@ -56,7 +56,7 @@ class TodayBar extends PureComponent {
                             textAlign: "center",
                             marginTop: 0
                         }}>
-                            <span className="white-text">
+                            <span className={ this.props.textColor }>
                               Good { this.getDaySection() }{ this.getUserName() ? ', ' + this.getUserName() : ''}!
                             </span>
                         </p>
@@ -71,7 +71,8 @@ class TodayBar extends PureComponent {
 const mapStateToProps = (state) => {
   return {
     github: state.github,
-    color: state.color
+    color: state.color,
+    textColor: state.textColor
   }
 }
 

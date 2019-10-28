@@ -17,7 +17,7 @@ class Site extends PureComponent {
                 <a href={ this.props.site.link }
                    className="card-panel bp-button hoverable z-depth-1"
                    style={ this.getComputedStyles() }>
-                   <span className="white-text center"
+                   <span className={ 'center ' + this.props.textColor }
                          style={{ display: "block" }}>{ this.props.site.name }</span>
                 </a>
             </div>

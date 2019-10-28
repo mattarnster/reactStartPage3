@@ -117,3 +117,10 @@ export function setColor(color) {
         }
     }
 }
+
+export function setTextColor(textColor) {
+    return {
+        type: 'SET_TEXT_COLOR',
+        payload: textColor
+    }
+}
