@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import { Link } from 'react-router-dom'
 
 class NoSites extends PureComponent {
     render() {
@@ -10,7 +11,11 @@ class NoSites extends PureComponent {
                               style={{
                                   display: 'block'
                               }}>Welcome to reactStartPage<sup>4</sup></span>
-                        <p className="center">Click 'Add/Remove' in the top-left to get started!</p>
+                        <p className="center">A project by <a href="https://twitter.com/mattarnster">@mattarnster</a></p>
+                        <br />
+                        {/* <p className="center">This is your own personal start page. <br /> All of your data is stored locally within your web-browser &nbsp; - &nbsp; See the <Link to="/settings">Settings page</Link> for more information.</p> */}
+                        {/* <br /> */}
+                        <p className="center">Click 'Manage Sites' in the top-left to get started!</p>
                     </div>
                 </div>
             </div>

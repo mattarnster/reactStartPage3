@@ -2,6 +2,7 @@
 
 import localStorageHelper from '../helpers/localStorageHelper'
 
+var lsh = new localStorageHelper()
 
 const github = (state = {}, action) => {
 
@@ -23,7 +24,6 @@ const github = (state = {}, action) => {
         })
 
     case 'LOAD_PROFILE':
-        let lsh = new localStorageHelper()
         lsh.setProfile(action.payload.profile)
         return Object.assign({}, state, {
           ghProfile: action.payload.profile

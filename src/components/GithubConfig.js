@@ -4,8 +4,6 @@ import queryString from 'query-string'
 import GitHub from 'github-api'
 import tinycolor from 'tinycolor2'
 
-import Nav from './Nav'
-import TodayBar from './TodayBar'
 import GistListing from './Github/GistListing'
 import GistOps from './Github/GistOps'
 
@@ -72,6 +70,7 @@ class GithubConfig extends PureComponent {
       .then(gist => {
         console.log(gist.data)
         this.props.dispatch(ghUpdateBackupGistId(gist.data.id))
+        alert("Backup gist created!")
       })
     } else {
       console.log('Backup gist id not found in storage')
@@ -92,6 +91,7 @@ class GithubConfig extends PureComponent {
         .then (gist => {
           console.log('gist update')
           console.log(gist.data)
+          alert("GitHub gist updated!")
         })
       })
     }
@@ -112,27 +112,14 @@ class GithubConfig extends PureComponent {
 
   render() {
     return (
-      <div className="GithubConfig">
-        <Nav ghAuthStatus={ this.props.github.ghAuthStatus }/>
-        <TodayBar />
-        <div className="container">
-          <div className="s12 m12">
-            <div className="card white-text"
-                style={ this.getComputedColor() }>
-              <div className="card-content">
-                  <span className="card-title">Link your GitHub account to save your bookmarks.</span>
-                  <br />
+      <div className="GithubConfig" id="GitHub">
+        { this.getButtonState() }
 
-                  { this.getButtonState() }
+        { this.props.github.ghToken ? <GistOps color={ this.props.color } backup={ this.backup } /> : null }
 
-                  { this.props.github.ghToken ? <GistOps color={ this.props.color } backup={ this.backup } /> : null }
-
-                  { this.props.github.ghToken ? <GistListing color={ this.props.color } /> : null }
-              </div>
-            </div>
-          </div>
-        </div>
+        { this.props.github.ghToken ? <GistListing color={ this.props.color } /> : null }
       </div>
+          
     );
   }
 }
