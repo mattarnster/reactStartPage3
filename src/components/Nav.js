@@ -23,7 +23,7 @@ class Nav extends PureComponent {
                         <li><Link to="/settings">Settings</Link></li>
                     </ul>
                     <ul className="right hide-on-med-and-down">
-                        { this.props.ghAuthStatus ? <li className="gh-connected"><Link to="/link-github"><img alt="It's you!" src="//avatars0.githubusercontent.com/u/6093927?v=4" width="30" height="30"/>Connected to GitHub</Link></li> : null }
+                        { this.props.ghAuthStatus ? <li className="gh-connected"><Link to="/link-github"><img alt="It's you!" src={this.props.github.ghProfile.avatar_url} width="30" height="30"/>Connected to GitHub</Link></li> : null }
                     </ul>
                 </div>
 
@@ -42,7 +42,8 @@ class Nav extends PureComponent {
 const mapStateToProps = (state) => {
     return {
         sites: state.sites,
-        color: state.color
+        color: state.color,
+        github: state.github
     }
 }
 
