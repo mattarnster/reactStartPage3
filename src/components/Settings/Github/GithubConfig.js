@@ -27,19 +27,26 @@ class GithubConfig extends PureComponent {
   componentDidMount() {
      let query = queryString.parse(window.location.search)
      if ('code' in query) {
-         this.props.dispatch(ghAuthStatusChange('pending'))
-         this.props.dispatch(ghAuthorise(query.code))
-     }
-     ghProfile().then(req => {
-       return req.data
-     }).then(profile => {
-       this.props.dispatch(ghUserProfile(profile))
-     })
+        console.log('code in query string')
+        this.props.dispatch(ghAuthStatusChange('pending'))
+        console.log("1. authorizing github access")
+        this.props.dispatch(ghAuthorise(query.code))
+          .then(() => {
+            this.getGitHubProfile()
+          })
+     }  
+  }
+
+  async getGitHubProfile() {
+    ghProfile().then(req => {
+      return req.data
+    }).then(profile => {
+      console.log("2. asking for the user's profile")
+      this.props.dispatch(ghUserProfile(profile))
+    })
   }
 
   getButtonState() {
-    console.info('state')
-    console.log(this.props.github)
     if (this.props.github.ghAuthStatus === 'pending') {
       return <p className="waves-effect waves-light btn-large blue darken-3 disabled">Pending... Please wait.</p>
     } else if (!this.props.github.ghAuthStatus) {
@@ -112,12 +119,22 @@ class GithubConfig extends PureComponent {
 
   render() {
     return (
-      <div className="GithubConfig" id="GitHub">
-        { this.getButtonState() }
+      <div className="container">
+        <div className="card"
+              style={ this.getComputedColor() }>
+          <div className={ 'card-content ' + this.props.textColor }>
+            <span className="card-title">Github</span>
+            <p>Configure the link to GitHub for exporting your sites.</p>
+            <br/>
+            <div className="GithubConfig" id="GitHub">
+              { this.getButtonState() }
 
-        { this.props.github.ghToken ? <GistOps color={ this.props.color } backup={ this.backup } /> : null }
+              { this.props.github.ghToken ? <GistOps color={ this.props.color } backup={ this.backup } /> : null }
 
-        { this.props.github.ghToken ? <GistListing color={ this.props.color } /> : null }
+              { this.props.github.ghToken ? <GistListing color={ this.props.color } /> : null }
+            </div>
+          </div>
+        </div>
       </div>
           
     );
@@ -128,7 +145,8 @@ const mapStateToProps = (state) => {
     return {
         github: state.github,
         sites: state.sites,
-        color: state.color
+        color: state.color,
+        textColor: state.textColor
     }
 }
 

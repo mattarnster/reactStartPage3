@@ -5,10 +5,10 @@ import tinycolor from 'tinycolor2'
 import Nav from '../Nav'
 import TodayBar from '../TodayBar'
 import GithubConfig from './Github/GithubConfig'
-
-import { ChromePicker } from 'react-color'
+import ColorPicker from './Theme/ColorPicker'
 
 import { setColor, setTextColor } from '../../actions/actionCreators'
+import ExportData from './Export/ExportData';
 
 class SettingsPage extends PureComponent {
 
@@ -49,29 +49,17 @@ class SettingsPage extends PureComponent {
             <Nav ghAuthStatus={ this.props.github.ghAuthStatus } />
             <TodayBar />
             <div className="container">
-                <div className="card"
-                     style={ this.getComputedColor() }>
-                    <div className={ 'card-content ' + this.props.textColor}>
-                        <span className="card-title">Theme</span>
-                        <p>Choose your favorite color to customize the theme</p>
-                        <br/>
-                        <ChromePicker 
-                            color={ this.props.color === '' ? '#fff' : this.props.color }
-                            onChangeComplete={ this.onColorChange } />
+                <div className="row">
+                    <div className="col s12 m4 center">
+                        <ColorPicker onColorChange={ this.onColorChange }/>
+                    </div>
+                    <div className="col s12 m8 center">
+                        <ExportData />
                     </div>
                 </div>
+
             </div>
-            <div className="container">
-            <div className="card"
-                     style={ this.getComputedColor() }>
-                    <div className={ 'card-content ' + this.props.textColor }>
-                        <span className="card-title">Github</span>
-                        <p>Configure the link to GitHub for exporting your sites.</p>
-                        <br/>
-                        <GithubConfig />
-                    </div>
-                </div>
-            </div>
+            <GithubConfig />
         </div>
         );
     }

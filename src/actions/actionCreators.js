@@ -30,7 +30,7 @@ export function ghAuthorise(code) {
             dispatch(ghAssignToken(result))
         })
         .catch(error => {
-
+            console.log("error authorizing user with github")
         })
     }
 }

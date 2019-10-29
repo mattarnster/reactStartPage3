@@ -18,7 +18,7 @@ class Nav extends PureComponent {
                 <div className="nav-wrapper" style={ this.getComputedColorStyle() }>
                     <Link to="/" className={'brand-logo center ' + this.props.textColor }>reactStartPage<sup>4</sup></Link>
                     <ul className="left hide-on-med-and-down">
-                        <li><Link to="/add-remove" className={ this.props.textColor }>Manage Sites</Link></li>
+                        <li><Link to="/manage-sites" className={ this.props.textColor }>Manage Sites</Link></li>
                         <li><Link to="/settings" className={ this.props.textColor }>Settings</Link></li>
                     </ul>
                     <ul className="right hide-on-med-and-down">
@@ -28,7 +28,7 @@ class Nav extends PureComponent {
 
                 <div className="nav-wrapper hide-on-med-and-up" style={ this.getComputedColorStyle() }>
                     <ul className="left">
-                        <li><Link to="/add-remove" className={ this.props.textColor }>Add/Remove</Link></li>
+                        <li><Link to="/manage-sites" className={ this.props.textColor }>Add/Remove</Link></li>
                         <li><Link to="/settings" className={ this.props.textColor }>Settings</Link></li>
                     </ul>
                 </div>

@@ -11,7 +11,6 @@ import {
 
 import App from './components/App';
 import AddRemovePage from './components/AddRemove/AddRemovePage'
-import GithubConfig from './components/Settings/Github/GithubConfig'
 import SettingsPage from './components/Settings/SettingsPage';
 
 import registerServiceWorker from './registerServiceWorker';
@@ -21,9 +20,9 @@ ReactDOM.render(
     <Router>
       <div>
         <Route path="/" exact component={App} />
-        <Route path="/add-remove" exact component={AddRemovePage} />
-        <Route path="/link-github" exact component={GithubConfig} />
-        <Route path="/gh-callback" exact component={GithubConfig} />
+        <Route path="/manage-sites" exact component={AddRemovePage} />
+        <Route path="/link-github" exact component={SettingsPage} />
+        <Route path="/gh-callback" exact component={SettingsPage} />
         <Route path="/settings" exact component={SettingsPage} />
       </div>
     </Router>
