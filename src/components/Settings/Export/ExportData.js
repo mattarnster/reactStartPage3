@@ -26,13 +26,14 @@ class ExportData extends PureComponent {
         console.log("building zip package")
         let zip = new jszip()
         var d = new Date()
-        zip.file('sites.json', this.props.sites)
+        zip.file('sites.json', JSON.stringify(this.props.sites))
         zip.file('color.txt', this.props.color)
         zip.file('textColor.txt', this.props.textColor)
         zip.file('gh_auth_tok.txt', this.props.github.ghToken)
         zip.file('gh_backup_gist_id.txt', this.props.github.ghBackupGistId)
-        zip.file('gh_profile.json', this.props.github.ghProfile)
-        zip.file('gh_auth_status.txt', this.props.github.ghAuthStatus)
+        console.log(JSON.stringify(this.props.github.ghProfile))
+        zip.file('gh_profile.json', JSON.stringify(this.props.github.ghProfile))
+        zip.file('gh_auth_status.txt', this.props.github.ghAuthStatus ? 'true' : 'false')
         zip.generateAsync({type:"blob"})
         .then(function (blob) {
             saveAs(blob, 'reactStartPage-export-' + d.getTime()  + '.zip');
