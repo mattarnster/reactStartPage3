@@ -31,7 +31,6 @@ class ExportData extends PureComponent {
         zip.file('textColor.txt', this.props.textColor)
         zip.file('gh_auth_tok.txt', this.props.github.ghToken)
         zip.file('gh_backup_gist_id.txt', this.props.github.ghBackupGistId)
-        console.log(JSON.stringify(this.props.github.ghProfile))
         zip.file('gh_profile.json', JSON.stringify(this.props.github.ghProfile))
         zip.file('gh_auth_status.txt', this.props.github.ghAuthStatus ? 'true' : 'false')
         zip.generateAsync({type:"blob"})
