@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "github-api": "^3.0.0",
+    "jszip": "^3.2.2",
     "moment": "^2.22.2",
     "query-string": "5",
     "react": "^16.11.0",

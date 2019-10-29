@@ -11,7 +11,7 @@ import {
 
 import App from './components/App';
 import AddRemovePage from './components/AddRemove/AddRemovePage'
-import GithubConfig from './components/GithubConfig'
+import GithubConfig from './components/Settings/Github/GithubConfig'
 import SettingsPage from './components/Settings/SettingsPage';
 
 import registerServiceWorker from './registerServiceWorker';

@@ -4,17 +4,17 @@ import queryString from 'query-string'
 import GitHub from 'github-api'
 import tinycolor from 'tinycolor2'
 
-import GistListing from './Github/GistListing'
-import GistOps from './Github/GistOps'
+import GistListing from './GistListing'
+import GistOps from './GistOps'
 
 import {
   ghAuthStatusChange,
   ghAuthorise,
   ghUpdateBackupGistId,
   ghUserProfile
-} from '../actions/actionCreators'
+} from '../../../actions/actionCreators'
 
-import { ghProfile } from '../api/ghProfile';
+import { ghProfile } from '../../../api/ghProfile';
 
 class GithubConfig extends PureComponent {
 

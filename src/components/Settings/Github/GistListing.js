@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import GitHub from 'github-api'
 
-import { loadGists, replaceSites } from '../../actions/actionCreators'
+import { loadGists, replaceSites } from '../../../actions/actionCreators'
 
 import Gist from './Gist'
 

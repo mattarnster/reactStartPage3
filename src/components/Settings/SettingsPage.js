@@ -4,7 +4,7 @@ import tinycolor from 'tinycolor2'
 
 import Nav from '../Nav'
 import TodayBar from '../TodayBar'
-import GithubConfig from '../GithubConfig'
+import GithubConfig from './Github/GithubConfig'
 
 import { ChromePicker } from 'react-color'
 
