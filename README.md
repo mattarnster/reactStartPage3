@@ -1,3 +1,22 @@
+# reactStartPage
+
+Thanks for stopping by.
+
+This is my personal new tab page. It's written using the following technology:
+
+- React
+- Redux
+- Redux Thunk
+- React Router
+- React Color Picker
+- JSZip
+- Local Storage
+- The GitHub API
+- Tinycolor2
+- Materialize.css
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>

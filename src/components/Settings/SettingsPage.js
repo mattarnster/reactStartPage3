@@ -53,6 +53,14 @@ class SettingsPage extends PureComponent {
                     <div className="col s12 m4 center">
                         <ColorPicker onColorChange={ this.onColorChange }/>
                     </div>
+                    <div className={ 'col s12 m8 center ' + this.props.textColor }>
+                        <div className="card" style={ this.getComputedColor() }>
+                            <div className="card-content">
+                                <span className="card-title">reactStartPage is open-source</span>
+                                <p>View the source on <a href="https://github.com/mattarnster/reactStartPage3">GitHub</a></p>
+                            </div>
+                        </div>
+                    </div>
                     <div className="col s12 m8 center">
                         <ExportData />
                     </div>
