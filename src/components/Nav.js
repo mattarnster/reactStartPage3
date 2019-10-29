@@ -22,7 +22,7 @@ class Nav extends PureComponent {
                         <li><Link to="/settings" className={ this.props.textColor }>Settings</Link></li>
                     </ul>
                     <ul className="right hide-on-med-and-down">
-                        { this.props.ghAuthStatus ? <li className="gh-connected"><Link to="/settings" className={ this.props.textColor }><img alt="It's you!" src={this.props.github.ghProfile.avatar_url} width="30" height="30"/>Connected to GitHub</Link></li> : null }
+                        { this.props.github.ghAuthStatus && this.props.github.ghProfile ? <li className="gh-connected"><Link to="/settings" className={ this.props.textColor }><img alt="It's you!" src={ this.props.github.ghProfile.avatar_url } width="30" height="30"/>Connected to GitHub</Link></li> : null }
                     </ul>
                 </div>
 
