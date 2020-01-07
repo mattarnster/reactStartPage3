@@ -4,6 +4,7 @@
   "homepage": "https://ngstartpage.uk",
   "private": true,
   "dependencies": {
+    "@sentry/browser": "^5.10.2",
     "file-saver": "^2.0.2",
     "github-api": "^3.0.0",
     "jszip": "^3.2.2",

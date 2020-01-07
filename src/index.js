@@ -9,11 +9,15 @@ import {
   Route
 } from 'react-router-dom'
 
+import * as Sentry from '@sentry/browser';
+
 import App from './components/App';
 import AddRemovePage from './components/AddRemove/AddRemovePage'
 import SettingsPage from './components/Settings/SettingsPage';
 
 import registerServiceWorker from './registerServiceWorker';
+
+Sentry.init({dsn: "http://3766d7c69d754c5a8c2a6c109aa7f68b@titan.moonunit.space:9000/1"});
 
 ReactDOM.render(
   <Provider store={ store }>
