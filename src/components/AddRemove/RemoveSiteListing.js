@@ -12,7 +12,7 @@ class RemoveSiteListing extends PureComponent {
                                           onClick={ () => this.props.removeSite(key) }
                                           style={{
                                               display: 'block'
-                                          }}>{ site.name }
+                                          }}>{ site.name } - {site.link}
                                     </span>
                                 </div>
                     })
