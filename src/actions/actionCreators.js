@@ -41,9 +41,9 @@ export function setGhContributors(contributors) {
     window.localStorage.setItem('gh_contributors', contributors)
 
     return {
-        type: 'ASSIGN_TOKEN',
+        type: 'SET_CONTRIBUTORS',
         payload: {
-            contributors
+            contributors: contributors
         }
     }
 }
