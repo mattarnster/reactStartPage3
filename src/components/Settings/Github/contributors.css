@@ -1,0 +1,18 @@
+ul.list-contributors {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+li.item-contributor {
+	width: 35px;
+	height: 35px;
+	margin-left: 5px;
+}
+
+.item-contributor img {
+	width: 100%;
+	height: auto;
+	border-radius: 50%;
+}

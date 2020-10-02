@@ -1,5 +1,6 @@
 
 import { ghAuth } from '../api/ghAuth'
+import { ghContributors } from '../api/ghContributors'
 
 export function ghAuthStatusChange(value) {
     return {
@@ -28,6 +29,30 @@ export function ghAuthorise(code) {
         .then(result => {
             dispatch(ghAuthStatusChange(true))
             dispatch(ghAssignToken(result))
+        })
+        .catch(error => {
+            console.log("error authorizing user with github")
+        })
+    }
+}
+
+export function setGhContributors(contributors) {
+    // Save the token to local storage for now.
+    window.localStorage.setItem('gh_contributors', contributors)
+
+    return {
+        type: 'ASSIGN_TOKEN',
+        payload: {
+            contributors
+        }
+    }
+}
+
+export function getGhContributors() {
+    return async (dispatch) => {
+        await ghContributors()
+        .then(result => {
+            dispatch(setGhContributors(result))
         })
         .catch(error => {
             console.log("error authorizing user with github")
