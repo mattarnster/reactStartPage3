@@ -1,8 +1,8 @@
 # reactStartPage
 
-Thanks for stopping by.
+Thanks for stopping by!
 
-This is my personal new tab page. It's written using the following technology:
+This is my personal new-tab page. It uses the following technologies:
 
 - React
 - Redux
@@ -17,10 +17,10 @@ This is my personal new tab page. It's written using the following technology:
 
 ---
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+This project is bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-Below you will find some information on how to perform common tasks.<br>
-You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+Below you will find some useful information on how to get started!<br>
+Find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
 ## Table of Contents
 
@@ -102,7 +102,7 @@ You can find the most recent version of this guide [here](https://github.com/fac
   - [`npm run build` fails on Heroku](#npm-run-build-fails-on-heroku)
 - [Something Missing?](#something-missing)
 
-## Updating to New Releases
+## Update the to New Releases
 
 Create React App is divided into two packages:
 
@@ -119,13 +119,13 @@ In most cases bumping the `react-scripts` version in `package.json` and running 
 
 We commit to keeping the breaking changes minimal so you can upgrade `react-scripts` painlessly.
 
-## Sending Feedback
+## Send your Feedbacks
 
 We are always open to [your feedback](https://github.com/facebookincubator/create-react-app/issues).
 
 ## Folder Structure
 
-After creation, your project should look like this:
+After creation, your project will look like this:
 
 ```
 my-app/
