@@ -25,6 +25,10 @@ if (localStorage.getTextColor() === null) {
   window.localStorage.setItem('text_color', 'white-text');
 }
 
+if (localStorage.getContributors() === null) {
+  window.localStorage.setItem('gh_contributors', JSON.parse('[]'));
+}
+
 // Default state
 const defaultState = {
   sites: (localStorage.getSites() !== null) ? localStorage.getSites() : [],
@@ -33,8 +37,8 @@ const defaultState = {
     ghToken: ghAuthToken,
     ghProfile: ghLocalProfile,
     gists: [],
-	ghBackupGistId,
-	contributors: ghContributors
+    ghBackupGistId,
+    contributors: ghContributors
   },
   imageCredit: '',
   color: localStorage.getColor(),

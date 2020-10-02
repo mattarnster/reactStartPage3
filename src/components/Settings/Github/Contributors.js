@@ -9,27 +9,29 @@ import {
 
 class Contributors extends PureComponent {
 
-    componentDidMount() {
-		this.props.dispatch(getGhContributors())
+    async componentDidMount() {
+		await this.props.dispatch(getGhContributors())
     }
 
     render() {
-		const { contributors } = this.props.github;
+		var { contributors } = this.props.github;
+		var contributorsList;
 
-		console.log(contributors);
+		if (contributors) {
+			contributorsList = contributors.map(contributor => 
+				<li className="item-contributor" key={contributor.id}>
+					<a href={contributor.html_url} target="_blank" rel="noopener noreferrer">
+						<img src={contributor.avatar_url} alt={contributor.login}/>
+					</a>
+				</li>);
+		}
 		
-		const contributorsList = contributors.map(contributor => 
-		<li className="item-contributor" key={contributor.id}>
-			<a href={contributor.html_url} target="_blank" rel="noopener noreferrer">
-				<img src={contributor.avatar_url} alt={contributor.login}/>
-			</a>
-		</li>);
 
         return(
 			<div className="card-content">
 				<p>Contributors</p>
 				<ul className="list-contributors">
-					{contributorsList}
+					{contributorsList ? contributorsList : 'Refresh to see contributors...'}
 				</ul>
 			</div>
 			
