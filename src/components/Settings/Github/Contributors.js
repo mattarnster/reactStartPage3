@@ -9,23 +9,23 @@ import {
 
 class Contributors extends PureComponent {
 
-    async componentDidMount() {
-		await this.props.dispatch(getGhContributors())
+	componentDidMount() {
+		const getData = async() => {
+			await this.props.dispatch(getGhContributors())
+		}
+
+		getData();
     }
 
     render() {
-		var { contributors } = this.props.github;
-		var contributorsList;
-
-		if (contributors) {
-			contributorsList = contributors.map(contributor => 
-				<li className="item-contributor" key={contributor.id}>
-					<a href={contributor.html_url} target="_blank" rel="noopener noreferrer">
-						<img src={contributor.avatar_url} alt={contributor.login}/>
-					</a>
-				</li>);
-		}
+		const  contributors = JSON.parse(this.props.github.contributors);
 		
+		const contributorsList = contributors?.map(contributor => 
+		<li className="item-contributor" key={contributor.id}>
+			<a href={contributor.html_url} target="_blank" rel="noopener noreferrer">
+				<img src={contributor.avatar_url} alt={contributor.login}/>
+			</a>
+		</li>);
 
         return(
 			<div className="card-content">

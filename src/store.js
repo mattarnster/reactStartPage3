@@ -1,49 +1,48 @@
 // store.js
-import { createStore, applyMiddleware, compose } from 'redux'
-import thunk from 'redux-thunk'
-import rootReducer from './reducers/index'
+import { createStore, applyMiddleware, compose } from "redux";
+import thunk from "redux-thunk";
+import rootReducer from "./reducers/index";
 
-import localStorageHelper from './helpers/localStorageHelper'
+import localStorageHelper from "./helpers/localStorageHelper";
 
+const localStorage = new localStorageHelper();
 
-const localStorage = new localStorageHelper()
-
-const ghAuthToken = localStorage.getAuthToken()
-const ghBackupGistId = localStorage.getBackupGistId()
-const ghLocalProfile = localStorage.getProfile()
-const ghContributors = localStorage.getContributors()
+const ghAuthToken = localStorage.getAuthToken();
+const ghBackupGistId = localStorage.getBackupGistId();
+const ghLocalProfile = localStorage.getProfile();
+const contributors = localStorage.getContributors();
 
 if (localStorage.getSites() === null) {
-  window.localStorage.setItem('sites', []);
+  window.localStorage.setItem("sites", []);
 }
 
 if (localStorage.getColor() === null) {
-  window.localStorage.setItem('color', '#695DA4');
+  window.localStorage.setItem("color", "#695DA4");
 }
 
 if (localStorage.getTextColor() === null) {
-  window.localStorage.setItem('text_color', 'white-text');
+  window.localStorage.setItem("text_color", "white-text");
 }
 
 if (localStorage.getContributors() === null) {
-  window.localStorage.setItem('gh_contributors', JSON.parse('[]'));
+  window.localStorage.setItem("gh_contributors", JSON.parse("[]"));
 }
 
 // Default state
 const defaultState = {
-  sites: (localStorage.getSites() !== null) ? localStorage.getSites() : [],
+  sites: localStorage.getSites() !== null ? localStorage.getSites() : [],
   github: {
-    ghAuthStatus: (ghAuthToken ? true : false),
+    ghAuthStatus: ghAuthToken ? true : false,
     ghToken: ghAuthToken,
     ghProfile: ghLocalProfile,
     gists: [],
     ghBackupGistId,
-    contributors: ghContributors
+    contributors,
   },
-  imageCredit: '',
+  imageCredit: "",
   color: localStorage.getColor(),
   textColor: localStorage.getTextColor(),
-}
+};
 
 const store = createStore(
   rootReducer,
@@ -52,7 +51,7 @@ const store = createStore(
     applyMiddleware(thunk),
     window.__REDUX_DEVTOOLS_EXTENSION__
       ? window.__REDUX_DEVTOOLS_EXTENSION__()
-      : f => f
+      : (f) => f
   )
 );
 
