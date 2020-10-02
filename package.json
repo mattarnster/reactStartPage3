@@ -21,6 +21,7 @@
     "tinycolor2": "^1.4.1"
   },
   "devDependencies": {
+    "@testing-library/react": "^11.0.4",
     "react-scripts": "3.2.0"
   },
   "scripts": {
