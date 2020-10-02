@@ -33,8 +33,13 @@ const github = (state = {}, action) => {
       lsh.putBackupGistId(action.payload.id)
         return Object.assign({}, state, {
             ghBackupGistId: action.payload.id
-        })
-
+		})
+	
+	case 'SET_CONTRIBUTORS': 
+		lsh.setContributors(action.payload.contributors)
+	return Object.assign({}, state, {
+		ghContributors: action.payload.contributors
+	})
     default:
       return state
   }

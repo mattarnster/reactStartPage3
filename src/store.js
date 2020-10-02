@@ -11,6 +11,7 @@ const localStorage = new localStorageHelper()
 const ghAuthToken = localStorage.getAuthToken()
 const ghBackupGistId = localStorage.getBackupGistId()
 const ghLocalProfile = localStorage.getProfile()
+const ghContributors = localStorage.getContributors()
 
 if (localStorage.getSites() === null) {
   window.localStorage.setItem('sites', []);
@@ -32,7 +33,8 @@ const defaultState = {
     ghToken: ghAuthToken,
     ghProfile: ghLocalProfile,
     gists: [],
-    ghBackupGistId
+	ghBackupGistId,
+	contributors: ghContributors
   },
   imageCredit: '',
   color: localStorage.getColor(),

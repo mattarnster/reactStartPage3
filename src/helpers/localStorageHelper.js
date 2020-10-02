@@ -34,6 +34,14 @@ export default class localStorageHelper {
 
     getAuthToken() {
         return window.localStorage.getItem('gh_auth_tok')
+	}
+	
+	setContributors(contributors) {
+        return window.localStorage.setItem('gh_contributors', contributors)
+	}
+	
+	getContributors() {
+		return JSON.parse(window.localStorage.getItem('gh_contributors'))
     }
 
     getBackupGistId() {

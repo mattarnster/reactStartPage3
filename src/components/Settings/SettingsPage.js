@@ -9,6 +9,7 @@ import ColorPicker from './Theme/ColorPicker'
 
 import { setColor, setTextColor } from '../../actions/actionCreators'
 import ExportData from './Export/ExportData';
+import Contributors from './Github/Contributors';
 
 class SettingsPage extends PureComponent {
 
@@ -59,6 +60,7 @@ class SettingsPage extends PureComponent {
                                 <span className="card-title">reactStartPage is open-source</span>
                                 <p>View the source on <a href="https://github.com/mattarnster/reactStartPage3">GitHub</a></p>
                             </div>
+							<Contributors/>
                         </div>
                     </div>
                     <div className="col s12 m8 center">
