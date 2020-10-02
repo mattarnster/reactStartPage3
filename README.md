@@ -1,5 +1,7 @@
 # reactStartPage
 
+⚠ NO CONTRIBUTIONS TO README.md WILL BE ACCEPTED ⚠
+
 Thanks for stopping by.
 
 This is my personal new tab page. It's written using the following technology:
