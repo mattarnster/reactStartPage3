@@ -28,7 +28,7 @@ class Nav extends PureComponent {
 
                 <div className="nav-wrapper hide-on-med-and-up" style={ this.getComputedColorStyle() }>
                     <ul className="left">
-                        <li><Link to="/manage-sites" className={ this.props.textColor }>Add/Remove</Link></li>
+                        <li><Link to="/manage-sites" className={ this.props.textColor }>Manage Sites</Link></li>
                         <li><Link to="/settings" className={ this.props.textColor }>Settings</Link></li>
                     </ul>
                 </div>
