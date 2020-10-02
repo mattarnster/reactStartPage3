@@ -25,7 +25,9 @@ class ImageCredit extends Component {
       (json) => {
         this.props.dispatch(loadImageCredit(json))
       }
-    )
+    ).catch((reason) => {
+      this.props.dispatch(loadImageCredit({ 'author': 'Error loading credit', 'url': 'https://ngstartpage.uk' }))
+    })
   }
 
   render() {
