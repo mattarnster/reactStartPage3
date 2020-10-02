@@ -10,7 +10,7 @@ class NoSites extends PureComponent {
                               style={{
                                   display: 'block'
                               }}>Welcome to reactStartPage<sup>4</sup></span>
-                        <p className="center">A project by <a href="https://twitter.com/mattarnster">@mattarnster</a> and these <a href="https://github.com/mattarnster/reactStartPage3/contributors" target="_blank">contributors</a> on GitHub</p>
+                        <p className="center">A project by <a href="https://twitter.com/mattarnster">@mattarnster</a> and these <a href="https://github.com/mattarnster/reactStartPage3/contributors" target="_blank" rel="noopener noreferrer">contributors</a> on GitHub</p>
                         <br />
                         <p className="center">This is your own personal start page. <br /> All of your data is stored locally within your web-browser.</p>
                         <br />
