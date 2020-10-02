@@ -41,7 +41,7 @@ export default class localStorageHelper {
 	}
 	
 	getContributors() {
-		return JSON.parse(window.localStorage.getItem('gh_contributors'))
+		return window.localStorage.getItem('gh_contributors')
     }
 
     getBackupGistId() {

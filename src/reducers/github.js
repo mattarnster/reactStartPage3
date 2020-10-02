@@ -6,43 +6,44 @@ var lsh = new localStorageHelper()
 
 const github = (state = {}, action) => {
 
-    switch (action.type) {
 
-        case 'AUTH_STATUS_CHANGE':
-            return Object.assign({}, state, {
-                ghAuthStatus: action.payload.ghAuthStatus
-            })
+  switch(action.type) {
 
-        case 'ASSIGN_TOKEN':
-            return Object.assign({}, state, {
-                ghToken: action.payload.ghToken
-            })
+    case 'AUTH_STATUS_CHANGE':
+        return Object.assign({}, state, {
+            ghAuthStatus: action.payload.ghAuthStatus
+        })
 
-        case 'LOAD_GISTS':
-            return Object.assign({}, state, {
-                gists: action.payload.gists
-            })
+    case 'ASSIGN_TOKEN':
+        return Object.assign({}, state, {
+            ghToken: action.payload.ghToken
+        })
 
-        case 'LOAD_PROFILE':
-            lsh.setProfile(action.payload.profile)
-            return Object.assign({}, state, {
-                ghProfile: action.payload.profile
-            })
+    case 'LOAD_GISTS':
+        return Object.assign({}, state, {
+            gists: action.payload.gists
+        })
 
-        case 'UPDATE_BACKUP_GIST_ID':
-            lsh.putBackupGistId(action.payload.id)
-            return Object.assign({}, state, {
-                ghBackupGistId: action.payload.id
-            })
+    case 'LOAD_PROFILE':
+        lsh.setProfile(action.payload.profile)
+        return Object.assign({}, state, {
+          ghProfile: action.payload.profile
+        })
 
-        case 'SET_CONTRIBUTORS':
-            lsh.setContributors(action.payload.contributors)
-            return Object.assign({}, state, {
-                ghContributors: action.payload.contributors
-            })
-        default:
-            return state
-    }
+    case 'UPDATE_BACKUP_GIST_ID':
+      lsh.putBackupGistId(action.payload.id)
+        return Object.assign({}, state, {
+            ghBackupGistId: action.payload.id
+		})
+	
+	case 'SET_CONTRIBUTORS': 
+		lsh.setContributors(action.payload.contributors)
+	return Object.assign({}, state, {
+		contributors: action.payload.contributors
+	})
+    default:
+      return state
+  }
 }
 
 export default github
