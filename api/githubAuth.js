@@ -4,7 +4,7 @@ export default (req, res) => {
     // res.setHeader('Access-Control-Allow-Origin', "https://ngstartpage.uk")
     var query = req.query
 
-    if (query.code){
+    if (query.code && req.method == "POST"){
         var github_url = 'https://github.com/login/oauth/access_token'
 
         var data = {
