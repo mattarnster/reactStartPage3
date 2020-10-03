@@ -25,8 +25,11 @@ export default (req, res) => {
         }).then(data => {
             return data.json()
         }).then(data => {
-            console.log(data)
-            res.status(200).send(data)
+            if (data.access_token) {
+                res.status(200).send(data.access_token)
+            } else {
+                res.status(500).send("No access token")
+            }
         })
     } else {
         res.status(400).send('Bad request')
