@@ -25,6 +25,7 @@ export default (req, res) => {
         }).then(data => {
             return data.json()
         }).then(data => {
+            console.log(data)
             res.status(200).send(data)
         })
     } else {
