@@ -14,6 +14,8 @@ export default (req, res) => {
         }
     
         data = JSON.stringify(data)
+
+        console.log(data)
     
         let response = fetch(github_url, {
             method: 'POST',
