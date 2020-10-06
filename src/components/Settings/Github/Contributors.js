@@ -18,8 +18,8 @@ class Contributors extends PureComponent {
     }
 
     render() {
-		const  contributors = JSON.parse(this.props.github.contributors).filter(item => item.type && item.type === "User");
-		const contributorsList = contributors?.map(contributor => 
+		const  contributors = JSON.parse(this.props.github.contributors);
+		const contributorsList = contributors?.filter(item => item.type && item.type === "User").map(contributor => 
 		<li className="item-contributor" key={contributor.id}>
 			<a href={contributor.html_url} target="_blank" rel="noopener noreferrer">
 				<img src={contributor.avatar_url} alt={contributor.login}/>
