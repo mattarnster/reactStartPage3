@@ -120,18 +120,22 @@ class GithubConfig extends PureComponent {
   render() {
     return (
       <div className="container">
-        <div className="card"
-              style={ this.getComputedColor() }>
-          <div className={ 'card-content ' + this.props.textColor }>
-            <span className="card-title">Github</span>
-            <p>Configure the link to GitHub for exporting your sites.</p>
-            <br/>
-            <div className="GithubConfig" id="GitHub">
-              { this.getButtonState() }
+        <div className="row">
+          <div className="col s12 center">
+            <div className="card"
+                  style={ this.getComputedColor() }>
+              <div className={ 'card-content ' + this.props.textColor }>
+                <span className="card-title">Github</span>
+                <p>Connect to GitHub to save/load your sites using Gists.</p>
+                <br/>
+                <div className="GithubConfig" id="GitHub">
+                  { this.getButtonState() }
 
-              { this.props.github.ghToken ? <GistOps color={ this.props.color } backup={ this.backup } /> : null }
+                  { this.props.github.ghToken ? <GistOps color={ this.props.color } backup={ this.backup } /> : null }
 
-              { this.props.github.ghToken ? <GistListing color={ this.props.color } /> : null }
+                  { this.props.github.ghToken ? <GistListing color={ this.props.color } /> : null }
+                </div>
+              </div>
             </div>
           </div>
         </div>

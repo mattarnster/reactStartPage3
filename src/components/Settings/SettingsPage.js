@@ -69,7 +69,9 @@ class SettingsPage extends PureComponent {
                 </div>
 
             </div>
+            
             <GithubConfig />
+
         </div>
         );
     }
