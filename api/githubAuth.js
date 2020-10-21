@@ -1,6 +1,6 @@
 import fetch from 'node-fetch'
 
-export default (req, res) => {
+export default async (req, res) => {
     // res.setHeader('Access-Control-Allow-Origin', "https://ngstartpage.uk")
     var query = req.query
 
@@ -14,24 +14,26 @@ export default (req, res) => {
         }
     
         data = JSON.stringify(data)
+
+        
     
-        let response = fetch(github_url, {
+        const response = await fetch(github_url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8',
                 'Accept': 'application/json'
             },
             body: data
-        }).then(data => {
-            return data.json()
-        }).then(data => {
+        })
+
+        response.json().then(data => {
             if (data.access_token) {
                 res.status(200).send(data.access_token)
             } else {
-                res.status(500).send("No access token")
+                res.status(500).json("No access token")
             }
         })
     } else {
-        res.status(400).send('Bad request')
+        res.status(400).json('Bad request')
     }
 }
