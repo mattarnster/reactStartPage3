@@ -5,7 +5,6 @@ import tinycolor from 'tinycolor2'
 import Nav from '../Nav'
 import TodayBar from '../TodayBar'
 import AddSiteForm from './AddSiteForm'
-import RemoveSiteListing from './RemoveSiteListing'
 
 import { addSite, removeSite } from '../../actions/actionCreators'
 
@@ -52,18 +51,19 @@ class AddRemovePage extends PureComponent {
                         <span className="card-title">Add a site</span>
                         <p>Use the form below to add a new site, or use the listing beneath to remove a site.</p>
                         <AddSiteForm textColor={ this.props.textColor } color={ this.props.color } onSubmit={ this.onSubmit } />
-                    </div>
-                </div>
-                <div className="card"
-                     style={ this.getComputedColor(true) }>
-                    <div className={ 'card-content ' + this.props.textColor }>
-                        <span className="card-title">Remove a site</span>
-                        <p>To remove a specific site, click on it below.</p>
-                        <div className="card-content">
-                            <RemoveSiteListing sites={ this.props.sites }
-                                               removeSite={ this.removeSite }
-                                               textColor={ this.props.textColor } />
-                        </div>
+                        {
+                            this.props.sites.map((site, key) => {
+                                return  <div className="card-panel blue white-text"
+                                            key={ key }>
+                                            <span className="center"
+                                                onClick={ () => this.removeSite(key) }
+                                                style={{
+                                                    display: 'block'
+                                                }}>{ site.name } - {site.link}
+                                            </span>
+                                        </div>
+                            })
+                        }
                     </div>
                 </div>
             </div>
