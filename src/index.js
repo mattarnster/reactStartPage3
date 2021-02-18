@@ -1,5 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import * as Sentry from "@sentry/react";
+import { Integrations } from "@sentry/tracing";
+Sentry.init({
+  dsn: "https://8edaf48f47014096a4fcb7eda14a87c5@o526497.ingest.sentry.io/5641886",
+  integrations: [new Integrations.BrowserTracing()],
+
+  // We recommend adjusting this value in production, or using tracesSampler
+  // for finer control
+  tracesSampleRate: 1.0,
+});
 
 import { Provider } from 'react-redux';
 import store from './store'
