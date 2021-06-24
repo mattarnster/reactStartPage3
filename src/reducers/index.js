@@ -7,6 +7,7 @@ import github from './github'
 import imageCredit from './imageCredit'
 import color from './color'
 import textColor from './textColor'
+import background from './background';
 
 const rootReducer = combineReducers({
   sites,
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   imageCredit,
   color,
   textColor,
+  background,
   form: formReducer.plugin({
     AddSiteForm: (state, action) => {
       switch(action.type) {
