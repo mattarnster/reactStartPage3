@@ -24,7 +24,7 @@ class App extends PureComponent {
         <div className="container">
           <SitesListing />
         </div>
-        { this.props.background === '' ? <ImageCredit /> : ''}
+        { this.props.background === '' || this.props.background === null ? <ImageCredit /> : ''}
       </div>
     );
   }
