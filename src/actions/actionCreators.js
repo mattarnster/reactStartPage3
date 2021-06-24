@@ -149,3 +149,17 @@ export function setTextColor(textColor) {
         payload: textColor
     }
 }
+
+export function setBackground(background) {
+    return {
+        type: 'SET_BACKGROUND',
+        payload: background
+    }
+}
+
+export function getBackground(background) {
+    return {
+        type: 'GET_BACKGROUND',
+        payload: background
+    }
+}

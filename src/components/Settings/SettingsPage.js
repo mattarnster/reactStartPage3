@@ -10,6 +10,7 @@ import ColorPicker from './Theme/ColorPicker'
 import { setColor, setTextColor } from '../../actions/actionCreators'
 import ExportData from './Export/ExportData';
 import Contributors from './Github/Contributors';
+import Background from './Background/Background';
 
 class SettingsPage extends PureComponent {
 
@@ -53,6 +54,7 @@ class SettingsPage extends PureComponent {
                 <div className="row">
                     <div className="col s12 m4 center">
                         <ColorPicker onColorChange={ this.onColorChange }/>
+                        <Background />
                     </div>
                     <div className={ 'col s12 m8 center ' + this.props.textColor }>
                         <div className="card" style={ this.getComputedColor() }>

@@ -7,6 +7,15 @@ import TodayBar from './TodayBar'
 import ImageCredit from './ImageCredit'
 
 class App extends PureComponent {
+
+  componentDidMount() {
+    if (this.props.background != '') {
+      document.body.style.backgroundImage = "url(" + this.props.background + ")"
+    } else {
+      document.body.style.backgroundImage = "url(/assets/unsplash.jpg)"
+    }
+  }
+
   render() {
     return (
       <div className="App">
@@ -15,7 +24,7 @@ class App extends PureComponent {
         <div className="container">
           <SitesListing />
         </div>
-        <ImageCredit />
+        { this.props.background === '' ? <ImageCredit /> : ''}
       </div>
     );
   }
@@ -24,7 +33,8 @@ class App extends PureComponent {
 const mapStateToProps = (state) => {
   return {
     github: state.github,
-    color: state.color
+    color: state.color,
+    background: state.background,
   }
 }
 
