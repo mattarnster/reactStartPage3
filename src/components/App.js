@@ -9,7 +9,7 @@ import ImageCredit from './ImageCredit'
 class App extends PureComponent {
 
   componentDidMount() {
-    if (this.props.background !== '' || this.props.background !== null) {
+    if (this.props.background !== '' && this.props.background !== null) {
       document.body.style.backgroundImage = "url(" + this.props.background + ")"
     } else {
       document.body.style.backgroundImage = "url(/assets/unsplash.jpg)"
