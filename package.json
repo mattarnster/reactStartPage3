@@ -10,7 +10,7 @@
     "file-saver": "^2.0.2",
     "github-api": "^3.4.0",
     "jszip": "^3.2.2",
-    "moment": "^2.22.2",
+    "moment": "^2.29.2",
     "node-fetch": "^2.6.1",
     "query-string": "5",
     "react": "^16.11.0",
