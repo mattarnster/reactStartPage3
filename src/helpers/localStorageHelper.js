@@ -2,91 +2,91 @@
  * Provides a method for getting bookmarks from localStorage
  */
 export default class localStorageHelper {
-    /**
-     * @return {Array} An array of the user's bookmarks.
-     */
-    getSites() {
-        let sites = window.localStorage.getItem('sites');
-        if (sites === "") {
-            console.info('Empty sites array');
-            return []
-        }
-        return JSON.parse(sites)
+  /**
+   * @return {Array} An array of the user's bookmarks.
+   */
+  getSites() {
+    let sites = window.localStorage.getItem('sites');
+    if (sites === "") {
+      console.info('Empty sites array');
+      return []
+    }
+    return JSON.parse(sites)
+  }
+
+  putSite(site) {
+    let currentSites = this.getSites()
+    let newSites = [...currentSites, site]
+    localStorage.setItem('sites', JSON.stringify(newSites))
+  }
+
+  removeSite(key) {
+    let currentSites = this.getSites()
+    currentSites.splice(key, 1)
+    localStorage.setItem('sites', JSON.stringify(currentSites))
+    return currentSites
+  }
+
+  replaceSites(sites) {
+    localStorage.setItem('sites', JSON.stringify(sites.sites))
+    return sites.sites
+  }
+
+  getAuthToken() {
+    return window.localStorage.getItem('gh_auth_tok')
+  }
+
+  setContributors(contributors) {
+    return window.localStorage.setItem('gh_contributors', contributors)
+  }
+
+  getContributors() {
+    return window.localStorage.getItem('gh_contributors')
+  }
+
+  getBackupGistId() {
+    let ghBackupGistId = window.localStorage.getItem('gh_backup_gist_id')
+
+    if (ghBackupGistId === null || ghBackupGistId === '') {
+      return null
     }
 
-    putSite(site) {
-        let currentSites = this.getSites()
-        let newSites = [...currentSites, site]
-        localStorage.setItem('sites', JSON.stringify(newSites))
-    }
+    return ghBackupGistId
+  }
 
-    removeSite(key) {
-        let currentSites = this.getSites()
-        currentSites.splice(key, 1)
-        localStorage.setItem('sites', JSON.stringify(currentSites))
-        return currentSites
-    }
+  putBackupGistId(id) {
+    return window.localStorage.setItem('gh_backup_gist_id', id)
+  }
 
-    replaceSites(sites) {
-        localStorage.setItem('sites', JSON.stringify(sites.sites))
-        return sites.sites
-    }
+  getProfile() {
+    return JSON.parse(window.localStorage.getItem('gh_profile'))
+  }
 
-    getAuthToken() {
-        return window.localStorage.getItem('gh_auth_tok')
-	}
-	
-	setContributors(contributors) {
-        return window.localStorage.setItem('gh_contributors', contributors)
-	}
-	
-	getContributors() {
-		return window.localStorage.getItem('gh_contributors')
-    }
+  setProfile(profile) {
+    return window.localStorage.setItem('gh_profile', JSON.stringify(profile))
+  }
 
-    getBackupGistId() {
-        let ghBackupGistId = window.localStorage.getItem('gh_backup_gist_id')
+  getColor() {
+    return window.localStorage.getItem('color')
+  }
 
-        if (ghBackupGistId === null || ghBackupGistId === '') {
-            return null
-        }
+  setColor(color) {
+    return window.localStorage.setItem('color', color)
+  }
 
-        return ghBackupGistId
-    }
+  getTextColor() {
+    return window.localStorage.getItem('text_color')
+  }
 
-    putBackupGistId(id) {
-        return window.localStorage.setItem('gh_backup_gist_id', id)
-    }
+  setTextColor(text_color) {
+    return window.localStorage.setItem('text_color', text_color)
+  }
 
-    getProfile() {
-      return JSON.parse(window.localStorage.getItem('gh_profile'))
-    }
+  getBackground() {
+    return window.localStorage.getItem('background')
+  }
 
-    setProfile(profile) {
-      return window.localStorage.setItem('gh_profile', JSON.stringify(profile))
-    }
-
-    getColor() {
-        return window.localStorage.getItem('color')
-    }
-  
-    setColor(color) {
-        return window.localStorage.setItem('color', color)
-    }
-
-    getTextColor() {
-        return window.localStorage.getItem('text_color')
-    }
-
-    setTextColor(text_color) {
-        return window.localStorage.setItem('text_color', text_color)
-    }
-
-    getBackground() {
-        return window.localStorage.getItem('background')
-    }
-
-    setBackground(background) {
-        return window.localStorage.setItem('background', background)
-    }
+  setBackground(background) {
+    return window.localStorage.setItem('background', background)
+  }
 }

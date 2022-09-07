@@ -25,8 +25,8 @@ if (localStorage.getTextColor() === null) {
   window.localStorage.setItem("text_color", "white-text");
 }
 
-if (localStorage.getContributors() === null) {
-  window.localStorage.setItem("gh_contributors", JSON.parse("[]"));
+if (localStorage.getContributors() === null || localStorage.getContributors() === "") {
+  window.localStorage.setItem("gh_contributors", []);
 }
 
 // Default state
